@@ -117,8 +117,8 @@ type Activity = {
   timestamp: string | Date | null
   children?: ReactNode
   itemsToSend?:
-    | AdminClaim["additional_items"]
-    | AdminExchange["additional_items"]
+  | AdminClaim["additional_items"]
+  | AdminExchange["additional_items"]
   itemsToReturn?: AdminReturn["items"]
   itemsMap?: Map<string, AdminOrderLineItem>
 }
@@ -459,12 +459,12 @@ const useActivityItems = (order: ExtendedOrder): Activity[] => {
           edit.status === "requested"
             ? edit.requested_at
             : edit.status === "confirmed"
-            ? edit.confirmed_at
-            : edit.status === "declined"
-            ? edit.declined_at
-            : edit.status === "canceled"
-            ? edit.canceled_at
-            : edit.created_at,
+              ? edit.confirmed_at
+              : edit.status === "declined"
+                ? edit.declined_at
+                : edit.status === "canceled"
+                  ? edit.canceled_at
+                  : edit.created_at,
         children: isConfirmed ? <OrderEditBody edit={edit} /> : null,
       })
     }
@@ -650,8 +650,8 @@ type OrderActivityItemProps = PropsWithChildren<{
   timestamp: string | Date | null
   isFirst?: boolean
   itemsToSend?:
-    | AdminClaim["additional_items"]
-    | AdminExchange["additional_items"]
+  | AdminClaim["additional_items"]
+  | AdminExchange["additional_items"]
   itemsToReturn?: AdminReturn["items"]
   itemsMap?: Map<string, AdminOrderLineItem>
 }>
@@ -1081,15 +1081,17 @@ const OrderEditBody = ({ edit }: { edit: AdminOrderChange }) => {
   const userId = isConfirmed
     ? edit.confirmed_by
     : isDeclined
-    ? edit.declined_by
-    : isCanceled
-    ? edit.canceled_by
-    : edit.requested_by
+      ? edit.declined_by
+      : isCanceled
+        ? edit.canceled_by
+        : edit.requested_by
 
   const [itemsAdded, itemsRemoved] = useMemo(
     () => countItemsChange(edit.actions),
     [edit]
   )
+
+  const internalNote = (edit as { internal_note?: string | null }).internal_note
 
   const ItemChangeDetails = ({
     itemChange,
@@ -1212,6 +1214,21 @@ const OrderEditBody = ({ edit }: { edit: AdminOrderChange }) => {
       {userId && (
         <div className="flex items-center gap-x-2 text-sm">
           {t("fields.by")} <By id={userId} />
+        </div>
+      )}
+      {internalNote && (
+        <div className="flex flex-col gap-y-1">
+          <Text
+            size="small"
+            leading="compact"
+            weight="plus"
+            className="text-ui-fg-base"
+          >
+            {t("fields.note")}
+          </Text>
+          <Text size="small" className="whitespace-pre-wrap">
+            {internalNote}
+          </Text>
         </div>
       )}
     </div>

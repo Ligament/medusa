@@ -16,6 +16,7 @@ import {
   useRequestOrderEdit,
 } from "../../../../../hooks/api/order-edits"
 import { getStylizedAmount } from "../../../../../lib/money-amount-helpers"
+import { sdk } from "../../../../../lib/client"
 import { OrderEditItemsSection } from "./order-edit-items-section"
 import { CreateOrderEditSchemaType, OrderEditCreateSchema } from "./schema"
 
@@ -58,7 +59,7 @@ export const OrderEditCreateForm = ({
 
   const prompt = usePrompt()
 
-  const handleSubmit = form.handleSubmit(async () => {
+  const handleSubmit = form.handleSubmit(async (data) => {
     try {
       const res = await prompt({
         title: t("general.areYouSure"),
@@ -70,6 +71,13 @@ export const OrderEditCreateForm = ({
 
       if (!res) {
         return
+      }
+
+      const orderChangeId = preview.order_change?.id
+      if (orderChangeId && data.note) {
+        await sdk.admin.order.updateOrderChange(orderChangeId, {
+          internal_note: data.note,
+        })
       }
 
       await requestOrderEdit()

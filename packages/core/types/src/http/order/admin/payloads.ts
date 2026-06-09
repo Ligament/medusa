@@ -221,4 +221,9 @@ export interface AdminUpdateOrderChange {
    * Whether to carry over promotions to outbound exchange items.
    */
   carry_over_promotions?: boolean
+
+  /**
+   * The internal note of the order change.
+   */
+  internal_note?: string | null
 }
