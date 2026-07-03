@@ -1,0 +1,16 @@
+name: medusajs_dart_sdk
+description: Dart SDK for the Medusa commerce API. A faithful port of @medusajs/js-sdk.
+version: 2.17.0
+repository: https://github.com/medusajs/medusa
+homepage: https://github.com/medusajs/medusa/tree/develop/packages/core/dart-sdk
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+
+dependencies:
+  http: ^1.2.0
+
+dev_dependencies:
+  test: ^1.25.0
+  lints: ^4.0.0
+  yaml: ^3.1.2
