@@ -1,0 +1,289 @@
+---
+sidebar_position: 6
+sidebar_label: "นำเข้าสินค้า"
+tags:
+    - user guide
+    - product
+products:
+    - product
+---
+
+import { ArrowDownTray, Trash, BellAlert, EllipsisHorizontal } from "@medusajs/icons"
+import { Prerequisites, Table } from "docs-ui"
+
+export const metadata = {
+  title: `นำเข้าสินค้าใน Medusa Admin`,
+}
+
+# {metadata.title}
+
+ในคู่มือนี้ คุณจะได้เรียนรู้วิธีนำเข้าสินค้าเข้าสู่ร้านค้า Medusa ของคุณ
+
+## นำเข้าสินค้าจากไฟล์ CSV
+
+หากคุณกำลังย้ายข้อมูลมาจากแพลตฟอร์มอีคอมเมิร์ซอื่น หรือจาก Medusa v1 คุณสามารถนำเข้าสินค้าไปยัง Medusa ได้โดยใช้ไฟล์ CSV
+
+เมื่อคุณนำเข้าไฟล์ CSV ระบบ Medusa จะสร้างหรืออัปเดตสินค้าตามไฟล์ CSV ที่คุณอัปโหลด
+
+### รูปแบบไฟล์ CSV
+
+ในฟอร์มการนำเข้า คุณสามารถดาวน์โหลดไฟล์เทมเพลต CSV เพื่อดูรูปแบบที่จำเป็นสำหรับการนำเข้าได้
+
+#### แถวในไฟล์ CSV
+
+แต่ละแถวในไฟล์ CSV แสดงถึงตัวเลือกสินค้า (product variant) ที่ต้องการสร้างหรืออัปเดต ดังนั้น หากสินค้าหนึ่งรายการมีหลายตัวเลือกสินค้า แต่ละตัวเลือกจะมีแถวของตัวเองในไฟล์ CSV
+
+ตัวอย่างเช่น สินค้าที่มีสองตัวเลือกสินค้า (สีแดงและสีน้ำเงิน) จะมีสองแถวในไฟล์ CSV โดยแถวหนึ่งเป็นของตัวเลือกสีแดง และอีกแถวหนึ่งเป็นของตัวเลือกสีน้ำเงิน
+
+#### คอลัมน์ในไฟล์ CSV
+
+คอลัมน์ในไฟล์ CSV จะเก็บรายละเอียดของตัวเลือกสินค้าและสินค้าที่เกี่ยวข้อง ไฟล์ CSV สามารถมีคอลัมน์ต่อไปนี้ได้:
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>คอลัมน์ (Column)</Table.HeaderCell>
+      <Table.HeaderCell>คำอธิบาย (Description)</Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>`Product Id`</Table.Cell>
+      <Table.Cell>ID ของสินค้าที่มีอยู่เดิมเพื่อทำการอัปเดต หากระบุค่านี้ คอลัมน์อื่น ๆ ก็ไม่จำเป็นต้องระบุ</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Handle`</Table.Cell>
+      <Table.Cell>ตัวระบุเฉพาะที่ใช้ใน URL ของสินค้าบนหน้าร้าน ช่วยให้คุณสร้าง URL ของสินค้าที่มนุษย์อ่านเข้าใจง่าย Handle จะต้องไม่ซ้ำกันในทุกสินค้า และต้องมีเฉพาะตัวอักษรภาษาอังกฤษตัวพิมพ์เล็ก ตัวเลข และเครื่องหมายยัติภังค์ (`-`) หากไม่ได้ระบุไว้ Medusa จะสร้าง handle จาก Title ของสินค้าโดยอัตโนมัติ</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Title`</Table.Cell>
+      <Table.Cell>ชื่อของสินค้า นี่เป็นฟิลด์เดียวที่จำเป็นต้องระบุหากไม่ได้ระบุ `Product Id`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Status`</Table.Cell>
+      <Table.Cell>สถานะของสินค้า สามารถระบุเป็น `draft` (ร่าง - ค่าเริ่มต้น), `published` (เผยแพร่แล้ว), `proposed` (เสนอ), หรือ `rejected` (ปฏิเสธ)</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Description`</Table.Cell>
+      <Table.Cell>คำอธิบายของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Subtitle`</Table.Cell>
+      <Table.Cell>คำอธิบายย่อยของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product External Id`</Table.Cell>
+      <Table.Cell>ID ของสินค้าในระบบภายนอก เช่น ระบบ ERP</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Thumbnail`</Table.Cell>
+      <Table.Cell>URL ของรูปภาพย่อ (thumbnail) ของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Collection Id`</Table.Cell>
+      <Table.Cell>ID ของคอลเลกชันที่สินค้าชิ้นนี้สังกัดอยู่</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Type Id`</Table.Cell>
+      <Table.Cell>ID ของประเภทสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Category *`</Table.Cell>
+      <Table.Cell>ID ของหมวดหมู่สินค้า โดยที่ `*` คือตัวเลขลำดับของหมวดหมู่ ช่วยให้คุณระบุหมวดหมู่ได้มากกว่าหนึ่งหมวดหมู่ เช่น `Product Category 1`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Discountable`</Table.Cell>
+      <Table.Cell>ระบุว่าสินค้าสามารถนำไปใช้กับส่วนลดได้หรือไม่ สามารถใส่ค่าเป็น `true` หรือ `false`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Height`</Table.Cell>
+      <Table.Cell>ความสูงของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Hs Code`</Table.Cell>
+      <Table.Cell>รหัสพิกัดศุลกากร (HS code) ของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Image *`</Table.Cell>
+      <Table.Cell>URL ของรูปภาพสินค้า โดยที่ `*` คือตัวเลขลำดับของรูปภาพ ช่วยให้คุณสามารถเพิ่มรูปภาพได้มากกว่าหนึ่งรูป เช่น `Product Image 1`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Length`</Table.Cell>
+      <Table.Cell>ความยาวของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Material`</Table.Cell>
+      <Table.Cell>วัสดุของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Mid Code`</Table.Cell>
+      <Table.Cell>รหัสระบุตัวตนของผู้ผลิต (MID) ของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Origin Country`</Table.Cell>
+      <Table.Cell>ประเทศต้นกำเนิดของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Tag *`</Table.Cell>
+      <Table.Cell>ID ของแท็กสินค้า โดยที่ `*` คือตัวเลขลำดับของแท็ก ช่วยให้คุณสามารถเพิ่มแท็กได้มากกว่าหนึ่งแท็ก เช่น `Product Tag 1`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Sales Channel *`</Table.Cell>
+      <Table.Cell>ID ของช่องทางการขายที่สินค้านี้มีวางจำหน่าย โดยที่ `*` คือตัวเลขลำดับของช่องทางการขาย ช่วยให้คุณเพิ่มช่องทางการขายได้มากกว่าหนึ่งช่องทาง เช่น `Product Sales Channel 1`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Weight`</Table.Cell>
+      <Table.Cell>น้ำหนักของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Product Width`</Table.Cell>
+      <Table.Cell>ความกว้างของสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Id`</Table.Cell>
+      <Table.Cell>ID ของตัวเลือกสินค้าที่มีอยู่เดิมเพื่อทำการอัปเดต ตัวเลือกสินค้าต้องเป็นของสินค้าที่ระบุในคอลัมน์ `Product Id` หากระบุค่านี้ คอลัมน์อื่น ๆ ที่เกี่ยวข้องกับตัวเลือกสินค้าก็ไม่จำเป็นต้องระบุ</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Title`</Table.Cell>
+      <Table.Cell>ชื่อของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Sku`</Table.Cell>
+      <Table.Cell>SKU ของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Upc`</Table.Cell>
+      <Table.Cell>UPC ของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Ean`</Table.Cell>
+      <Table.Cell>EAN ของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Hs Code`</Table.Cell>
+      <Table.Cell>รหัสพิกัดศุลกากร (HS code) ของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Mid Code`</Table.Cell>
+      <Table.Cell>รหัสระบุตัวตนของผู้ผลิต (MID) ของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Manage Inventory`</Table.Cell>
+      <Table.Cell>ระบุว่า Medusa จะจัดการสินค้าคงคลังสำหรับตัวเลือกสินค้านี้หรือไม่ สามารถใส่ค่าเป็น `true` หรือ `false`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Allow Backorder`</Table.Cell>
+      <Table.Cell>ระบุว่าตัวเลือกสินค้านี้อนุญาตให้สั่งซื้อสินค้าล่วงหน้า (backorder) หรือไม่ สามารถใส่ค่าเป็น `true` หรือ `false`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Barcode`</Table.Cell>
+      <Table.Cell>บาร์โค้ดของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Height`</Table.Cell>
+      <Table.Cell>ความสูงของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Length`</Table.Cell>
+      <Table.Cell>ความยาวของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Material`</Table.Cell>
+      <Table.Cell>วัสดุของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Metadata`</Table.Cell>
+      <Table.Cell>ข้อมูลเมทาดาตาของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Option * Name`</Table.Cell>
+      <Table.Cell>ชื่อของตัวเลือกย่อยสินค้า (variant option) โดยที่ `*` คือตัวเลขลำดับของตัวเลือกย่อย เช่น `Variant Option 1 Name`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Option * Value`</Table.Cell>
+      <Table.Cell>ค่า (value) ของตัวเลือกย่อยสินค้า โดยที่ `*` คือตัวเลขลำดับของตัวเลือกย่อย เช่น `Variant Option 1 Value`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Origin Country`</Table.Cell>
+      <Table.Cell>ประเทศต้นกำเนิดของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Price *`</Table.Cell>
+      <Table.Cell>ราคาของตัวเลือกสินค้าตามสกุลเงิน โดยที่ `*` คือรหัสสกุลเงินมาตรฐาน ISO เช่น `Variant Price USD`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Price [X] Y`</Table.Cell>
+      <Table.Cell>ราคาของตัวเลือกสินค้าตามภูมิภาค โดยที่ `X` คือชื่อภูมิภาค และ `Y` คือรหัสสกุลเงิน ISO ของภูมิภาคนั้น เช่น `Variant Price Europe [EUR]`</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Variant Rank`</Table.Cell>
+      <Table.Cell>อันดับของตัวเลือกสินค้าในรายการตัวเลือกสินค้าด้วยกัน สามารถเป็น `0` หรือสูงกว่าได้</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Weight`</Table.Cell>
+      <Table.Cell>น้ำหนักของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Variant Width`</Table.Cell>
+      <Table.Cell>ความกว้างของตัวเลือกสินค้า</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>`Shipping Profile Id`</Table.Cell>
+      <Table.Cell>ID ของข้อมูลโปรไฟล์การจัดส่ง (shipping profile) ที่สินค้าชิ้นนี้สังกัดอยู่</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+---
+
+## นำเข้าข้อมูลรายการสินค้า
+
+<Prerequisites
+  items={[
+    {
+      text: "ไฟล์ CSV ที่ต้องการนำเข้า",
+      link: "#csv-file-format",
+    }
+  ]}
+/>
+
+ขั้นตอนการนำเข้าสินค้า:
+
+1. ไปที่หน้า Products
+2. คลิกปุ่ม Import ในส่วนหัวของส่วนหลัก
+3. ในหน้าต่างด้านข้าง:
+    1. หากคุณไม่แน่ใจเกี่ยวกับรูปแบบไฟล์ CSV คุณสามารถดาวน์โหลดเทมเพลตไฟล์ CSV ได้
+    2. สำหรับการอัปโหลดไฟล์ CSV ที่ต้องการนำเข้าสินค้า คุณสามารถลากและวางไฟล์ในพื้นที่อัปโหลด หรือคลิกที่บริเวณดังกล่าวเพื่อเปิดหน้าต่างเลือกไฟล์
+    3. หลังจากที่คุณอัปโหลดไฟล์ CSV แล้ว:
+        1. ตรวจสอบจำนวนสินค้าที่จะถูกสร้างขึ้นหรือได้รับการอัปเดต
+        2. หากต้องการลบไฟล์ที่อัปโหลด ให้คลิกไอคอน <InlineIcon Icon={EllipsisHorizontal} alt="trash" /> และเลือก Delete จากเมนูแบบดึงลง
+4. เมื่อเรียบร้อยแล้ว ให้คลิกปุ่ม Import
+
+![ฟอร์มการนำเข้าสินค้า](https://res.cloudinary.com/dza7lstvk/image/upload/v1739878759/User%20Guide/Screenshot_2025-02-18_at_1.39.01_PM_ctovne.png)
+
+กระบวนการนำเข้าจะเริ่มต้นขึ้น ซึ่งอาจใช้เวลาสักครู่
+
+### ตรวจสอบสถานะการนำเข้า
+
+การตรวจสอบว่าการนำเข้าอยู่ระหว่างดำเนินการ เสร็จสิ้น หรือล้มเหลว:
+
+1. คลิกที่ไอคอนการแจ้งเตือน <InlineIcon Icon={BellAlert} alt="bell" /> ในส่วนหัวของหน้า
+2. ค้นหารายการนำเข้าสินค้า ซึ่งควรจะเป็นรายการล่าสุดบนรายการแจ้งเตือน
+
+ข้อความบนรายการนำเข้าจะแสดงสถานะปัจจุบันของการนำเข้า
+
+### การแก้ไขปัญหาข้อผิดพลาดในการนำเข้า
+
+หากการนำเข้าล้มเหลว ไม่ว่าจะเป็นระหว่างการวิเคราะห์ไฟล์ CSV หรือระหว่างกระบวนการนำเข้า ให้ตรวจสอบว่า:
+
+1. มีการตั้งค่า [storage integration](!resources!/infrastructure-modules/file) ไว้อย่างถูกต้องในแอปพลิเคชัน Medusa ของคุณ
+2. ไฟล์ CSV มีรูปแบบตรงตาม [รูปแบบที่จำเป็น](#csv-file-format)
+3. ID ทั้งหมดที่ระบุในไฟล์ CSV (เช่น คอลเลกชัน, หมวดหมู่, แท็ก, ช่องทางการขาย, โปรไฟล์การจัดส่ง ฯลฯ) มีอยู่จริงในแอปพลิเคชัน Medusa ของคุณ
+
+คุณยังสามารถตรวจสอบที่ server logs ของแอปพลิเคชัน Medusa ของคุณเพื่อรับข้อมูลเพิ่มเติมเกี่ยวกับข้อผิดพลาดได้
+
+<Note title="ผู้ใช้งาน Cloud?">
+
+เรียนรู้เพิ่มเติมเกี่ยวกับการแก้ไขปัญหาใน [คู่มือ Logs](!cloud!/logs)
+
+</Note>

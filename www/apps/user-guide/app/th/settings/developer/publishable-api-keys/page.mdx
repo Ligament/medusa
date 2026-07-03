@@ -1,0 +1,177 @@
+---
+sidebar_label: "จัดการ Publishable API Keys"
+tags:
+    - user guide
+    - api key
+products:
+    - api key
+---
+
+import { Table } from "docs-ui"
+import { EllipsisHorizontal } from "@medusajs/icons"
+
+export const metadata = {
+  title: `จัดการ Publishable API Keys ใน Medusa Admin`,
+}
+
+# {metadata.title}
+
+ในคู่มือนี้ คุณจะได้เรียนรู้วิธีสร้างและจัดการ Publishable API Keys ใน Medusa Admin
+
+<Note>
+
+คู่มือนี้มีประโยชน์อย่างยิ่งสำหรับนักพัฒนาและทีมเทคนิคที่กำลังพัฒนาการปรับแต่ง (customizations) สำหรับแอปพลิเคชัน Medusa
+
+</Note>
+
+## Publishable API Key คืออะไร?
+
+Publishable API Key คือคีย์ฝั่งไคลเอนต์ (client key) ที่กำหนดขอบเขตการใช้งานไว้กับช่องทางการขาย (sales channels) ตั้งแต่หนึ่งช่องทางขึ้นไป เมื่อคุณสร้างหน้าร้าน (storefront) คุณต้องส่ง Publishable API Key ในส่วนหัวของคำขอ (request headers) เพื่อระบุช่องทางการขายที่จะกำหนดขอบเขตของคำขอนั้น การดำเนินการนี้ส่งผลต่อสินค้าที่ดึงออกมา จำนวนสต็อกสินค้าที่พร้อมจำหน่าย และข้อมูลอื่น ๆ
+
+หากต้องการเรียนรู้วิธีการส่ง Publishable API Key ในส่วนหัวของคำขอ โปรดดูที่ [API Reference](!api!/store#publishable-api-key)
+
+---
+
+## ดู Publishable API Keys
+
+หากต้องการดู Publishable API Keys ใน Medusa Admin ให้ไปที่ Settings -> Publishable API Keys
+
+ที่นี่ คุณสามารถดูรายการของ Publishable API Keys ทั้งหมดที่คุณตั้งค่าไว้ในร้านค้าของคุณ นอกจากนี้ยังสามารถค้นหา กรอง และจัดเรียงคีย์ API เพื่อค้นหาคีย์ที่คุณต้องการได้
+
+![Publishable API keys list](https://res.cloudinary.com/dza7lstvk/image/upload/v1740489989/User%20Guide/Screenshot_2025-02-25_at_3.26.09_PM_xmpxdw.png)
+
+---
+
+## สร้าง Publishable API Key
+
+ขั้นตอนการสร้าง Publishable API Key ใหม่:
+
+1. ไปที่ Settings -> Publishable API Keys
+2. คลิกปุ่ม Create ในหัวข้อของส่วนหลัก
+3. ในฟอร์มที่เปิดขึ้น ให้กรอกชื่อ (title) ของ Publishable API Key
+4. เมื่อเสร็จแล้ว ให้คลิกปุ่ม Save
+
+![Create publishable API key form](https://res.cloudinary.com/dza7lstvk/image/upload/v1740490166/User%20Guide/Screenshot_2025-02-25_at_3.28.44_PM_aosbhw.png)
+
+---
+
+## ดูรายละเอียดของ Publishable API Key
+
+ขั้นตอนการดูรายละเอียดของ Publishable API Key:
+
+1. ไปที่ Settings -> Publishable API Keys
+2. คลิกที่ Publishable API Key ที่ต้องการในรายการ
+
+หน้าจอนี้จะเปิดหน้ารายละเอียดของ Publishable API Key ซึ่งคุณสามารถจัดการคีย์ API ดังกล่าวได้ด้วย
+
+![Publishable API key details page](https://res.cloudinary.com/dza7lstvk/image/upload/v1740490244/User%20Guide/Screenshot_2025-02-25_at_3.30.35_PM_bgcl23.png)
+
+### สถานะของ Publishable API Key
+
+คุณสามารถดูสถานะของ Publishable API Key ได้ในหัวข้อของส่วนแรกในหน้ารายละเอียด สถานะของ Publishable API Key สามารถเป็น:
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>สถานะ</Table.HeaderCell>
+      <Table.HeaderCell>คำอธิบาย</Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>ใช้งานอยู่ (Active)</Table.Cell>
+      <Table.Cell>คีย์ API นี้พร้อมใช้งานและสามารถใช้ในการส่งคำขอได้</Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>เพิกถอนแล้ว (Revoked)</Table.Cell>
+      <Table.Cell>คีย์ API นี้ถูกเพิกถอนแล้วและไม่สามารถใช้ในการส่งคำขอได้อีกต่อไป</Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+---
+
+## คัดลอก Publishable API Key
+
+ขั้นตอนการคัดลอก Publishable API Key:
+
+1. ไปที่หน้ารายละเอียดของ Publishable API Key
+2. ในส่วนแรก ให้คลิกที่คีย์ส่วนที่ถูกย่อไว้เพื่อคัดลอกไปยังคลิปบอร์ดของคุณ
+
+![Copy publishable API key](https://res.cloudinary.com/dza7lstvk/image/upload/v1740500116/User%20Guide/Screenshot_2025-02-25_at_6.14.15_PM_muwq9e.png)
+
+---
+
+## แก้ไข Publishable API Key
+
+ขั้นตอนการแก้ไข Publishable API Key:
+
+1. ไปที่หน้ารายละเอียดของ Publishable API Key
+2. คลิกไอคอน <InlineIcon Icon={EllipsisHorizontal} alt="สามจุด" /> ในหัวข้อของส่วนแรก
+3. เลือก "Edit" จากเมนูแบบดรอปดาวน์
+4. ในหน้าต่างด้านข้างที่เปิดขึ้น คุณสามารถแก้ไขชื่อ (title) ของ Publishable API Key ได้
+5. เมื่อเสร็จแล้ว ให้คลิกปุ่ม Save
+
+![Edit publishable API key form](https://res.cloudinary.com/dza7lstvk/image/upload/v1740490481/User%20Guide/Screenshot_2025-02-25_at_3.34.28_PM_hxppxj.png)
+
+---
+
+## จัดการช่องทางการขายของ Publishable API Key
+
+คุณสามารถจัดการช่องทางการขาย (sales channels) ของ Publishable API Key ได้จากหน้ารายละเอียด การเพิ่มช่องทางการขายให้กับ Publishable API Key จะช่วยกำหนดขอบเขตของคำขอที่ส่งด้วยคีย์นี้
+
+### เพิ่มช่องทางการขาย
+
+ขั้นตอนการเพิ่มช่องทางการขายให้กับ Publishable API Key:
+
+1. ไปที่หน้ารายละเอียดของ Publishable API Key
+2. คลิกปุ่ม "Add" ในหัวข้อของส่วน "Sales Channels"
+3. ในรายการที่เปิดขึ้น ให้ทำเครื่องหมายเลือกช่องทางการขายที่คุณต้องการเพิ่มคีย์ API นี้เข้าไป
+4. เมื่อเสร็จแล้ว ให้คลิกปุ่ม Save
+
+![Add sales channels form](https://res.cloudinary.com/dza7lstvk/image/upload/v1740490636/User%20Guide/Screenshot_2025-02-25_at_3.37.05_PM_ontnzy.png)
+
+### ลบช่องทางการขาย
+
+ขั้นตอนการลบช่องทางการขายออกจาก Publishable API Key:
+
+1. ไปที่หน้ารายละเอียด of Publishable API Key
+2. ทำเครื่องหมายในช่องสี่เหลี่ยมถัดจากช่องทางการขายที่คุณต้องการลบออกในส่วน "Sales Channels"
+3. กดปุ่ม <Kbd>R</Kbd> หรือคลิกปุ่ม Remove ที่กึ่งกลางด้านล่างของหน้าจอ
+4. ยืนยันการลบช่องทางการขายโดยคลิกปุ่ม Continue
+
+![Remove sales channels from publishable API key](https://res.cloudinary.com/dza7lstvk/image/upload/v1740490931/User%20Guide/Screenshot_2025-02-25_at_3.38.41_PM_pmlbqk.png)
+
+---
+
+## เพิกถอน Publishable API Key
+
+<Note type="warning">
+
+การเพิกถอน Publishable API Key ไม่สามารถย้อนกลับได้ คุณไม่สามารถใช้คีย์นี้ในการส่งคำขอหรือเปิดใช้งานใหม่ได้อีกหลังจากเพิกถอนแล้ว
+
+</Note>
+
+ขั้นตอนการเพิกถอน Publishable API Key:
+
+1. ไปที่หน้ารายละเอียดของ Publishable API Key
+2. คลิกไอคอน <InlineIcon Icon={EllipsisHorizontal} alt="สามจุด" /> ในหัวข้อของส่วนแรก
+3. เลือก "Revoke API key" จากเมนูแบบดรอปดาวน์
+4. ยืนยันการเพิกถอนคีย์ API โดยคลิกปุ่ม "Revoke API key" ในป๊อปอัป
+
+---
+
+## ลบ Publishable API Key
+
+<Note type="warning">
+
+การลบ Publishable API Key ไม่สามารถย้อนกลับได้
+
+</Note>
+
+คุณสามารถลบ Publishable API Key ได้หลังจากที่ทำการ[เพิกถอนมันแล้ว](#เพิกถอน-publishable-api-key)เท่านั้น ขั้นตอนการลบ Publishable API Key:
+
+1. ไปที่หน้ารายละเอียดของ Publishable API Key
+2. คลิกไอคอน <InlineIcon Icon={EllipsisHorizontal} alt="สามจุด" /> ในหัวข้อของส่วนแรก
+3. เลือก "Delete" จากเมนูแบบดรอปดาวน์
+4. ยืนยันการลบคีย์ API โดยคลิกปุ่ม Delete ในป๊อปอัป

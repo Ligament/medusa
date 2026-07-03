@@ -1,0 +1,122 @@
+---
+sidebar_position: 6
+sidebar_label: "จัดการตัวเลือกสินค้า"
+tags:
+    - user guide
+    - product
+products:
+    - product
+---
+
+import { EllipsisHorizontal, TaxExclusive, TaxInclusive, ArrowUpRightOnBox } from "@medusajs/icons"
+import { Table } from "docs-ui"
+
+export const metadata = {
+  title: `จัดการตัวเลือกสินค้าใน Medusa Admin`,
+}
+
+# {metadata.title}
+
+ในคู่มือนี้ คุณจะได้เรียนรู้วิธีสร้างและจัดการตัวเลือกสินค้า (Product Options)
+
+<Note>
+
+ตั้งแต่ [Medusa v2.16.0](https://github.com/medusajs/medusa/releases/tag/v2.16.0) เป็นต้นไป ตัวเลือกสินค้าสามารถจัดการในระดับสากล (Globally) และสามารถนำกลับมาใช้ซ้ำข้ามสินค้าต่าง ๆ ได้ หากคุณไม่เห็นหน้า Product → Options ในแถบเมนูด้านข้าง โปรดขอให้ทีมงานฝ่ายเทคนิคของคุณ [อัปเกรดแอปพลิเคชัน Medusa ของคุณ](!docs!/learn/update)
+
+</Note>
+
+## ตัวเลือกสินค้าคืออะไร?
+
+ตัวเลือกสินค้า คือ คุณลักษณะของสินค้าที่ปรับแต่งได้เพื่อให้เกิดความหลากหลายหรือสร้างทางเลือกให้กับลูกค้า ตัวอย่างทั่วไป ได้แก่ ขนาด (Size), สี (Color), วัสดุ (Material) และรูปแบบ (Style)
+
+ใน Medusa Admin คุณสามารถสร้างและจัดการตัวเลือกสินค้า จากนั้นเชื่อมโยงตัวเลือกเหล่านั้นกับสินค้าขณะสร้างหรือแก้ไขสินค้าได้ ซึ่งช่วยให้คุณสามารถกำหนดลักษณะเฉพาะที่ลูกค้าสามารถเลือกได้
+
+หากต้องการดูตัวเลือกสินค้าทั้งหมด ให้ไปที่หน้า Product → Options ตามค่าเริ่มต้นคุณจะเห็นรายการตัวเลือกสากล (Global Options) และหากต้องการดูตัวเลือกทั้งหมด ให้กดล้างตัวกรอง "Type is Global" ออก
+
+![รายการตัวเลือกสินค้าใน Medusa Admin](https://res.cloudinary.com/dza7lstvk/image/upload/v1765527807/User%20Guide/CleanShot_2025-12-12_at_10.22.21_2x_wysuv2.png)
+
+### สถานะของตัวเลือกสินค้า
+
+คุณสามารถดูสถานะของตัวเลือกสินค้าแต่ละรายการได้ในหน้ารายการสินค้าและในหน้ารายละเอียดของตัวเลือกนั้น ๆ โดยสถานะสามารถเป็นอย่างใดอย่างหนึ่งดังนี้:
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>
+        สถานะ
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        คำอธิบาย
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>
+        Global
+      </Table.Cell>
+      <Table.Cell>
+        ตัวเลือกที่สามารถนำไปใช้กับสินค้าได้หลายชิ้น คุณสร้างตัวเลือกนี้จากหน้า Product → Options
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Product-specific
+      </Table.Cell>
+      <Table.Cell>
+        ตัวเลือกที่ใช้เฉพาะสำหรับสินค้าชิ้นใดชิ้นหนึ่งเพียงชิ้นเดียว คุณสร้างตัวเลือกนี้ในระหว่างขั้นตอนการสร้างสินค้า
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+---
+
+## สร้างตัวเลือกสินค้า
+
+วิธีการสร้างตัวเลือกสินค้า:
+
+1. ไปที่ Product → Options
+2. คลิกปุ่ม **Create** ที่มุมขวาบนของส่วนหลัก
+3. ในฟอร์มที่เปิดขึ้น ให้กรอกรายละเอียดต่อไปนี้:
+    - **Title**: ชื่อของตัวเลือกสินค้า (ตัวอย่างเช่น "Size" หรือ "Color")
+    - **Values**: ค่าต่าง ๆ ของตัวเลือก คั่นด้วยเครื่องหมายจุลภาค (ตัวอย่างเช่น "Small, Medium, Large")
+    - **Organize rankings**: จัดลำดับตัวเลือกใหม่โดยใช้การลากและวาง (Drag & Drop)
+4. คลิกปุ่ม **Save**
+
+จากนั้นคุณสามารถนำตัวเลือกสินค้าใหม่นี้ไปใช้เมื่อ [สร้างสินค้า](../create/page.mdx#1-details-step) หรือ [แก้ไขตัวเลือกของสินค้า](../edit/page.mdx#edit-option)
+
+![ฟอร์มสร้างตัวเลือกสินค้าใน Medusa Admin](https://res.cloudinary.com/dza7lstvk/image/upload/v1765528360/User%20Guide/CleanShot_2025-12-12_at_10.25.40_2x_t7fndd.png)
+
+---
+
+## แก้ไขตัวเลือกสินค้า
+
+วิธีการแก้ไขตัวเลือกสินค้า:
+
+1. ไปที่ Product → Options
+2. คลิกไอคอน <InlineIcon Icon={EllipsisHorizontal} alt="three-dots" /> ในแถวของตัวเลือกสินค้าที่คุณต้องการแก้ไข
+3. คลิก **Edit** จากเมนูดรอปดาวน์
+4. ในหน้าต่างด้านข้างที่เปิดขึ้น คุณสามารถแก้ไขชื่อตัวเลือก ค่าของตัวเลือก และลำดับของค่าเหล่านั้นได้
+5. เมื่อเสร็จแล้ว ให้คลิกปุ่ม **Save**
+
+![ฟอร์มแก้ไขตัวเลือกสินค้าใน Medusa Admin](https://res.cloudinary.com/dza7lstvk/image/upload/v1765530115/User%20Guide/CleanShot_2025-12-12_at_11.01.44_2x_sh9bvw.png)
+
+---
+
+## ลบตัวเลือกสินค้า
+
+<Note type="warning">
+
+การลบตัวเลือกสินค้าจะไม่สามารถย้อนกลับคืนได้
+
+</Note>
+
+คุณสามารถลบตัวเลือกสินค้าได้หากตัวเลือกนั้นไม่ได้ถูกใช้งานโดยสินค้าใด ๆ
+
+วิธีการลบตัวเลือกสินค้า:
+
+1. ไปที่ Product → Options
+2. คลิกไอคอน <InlineIcon Icon={EllipsisHorizontal} alt="three-dots" /> ในแถวของตัวเลือกสินค้าที่คุณต้องการลบ
+3. คลิก **Delete** จากเมนูดรอปดาวน์
+4. ยืนยันการดำเนินการโดยคลิกปุ่ม "Delete" ในป๊อปอัป

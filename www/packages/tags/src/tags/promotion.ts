@@ -1,19 +1,19 @@
 export const promotion = [
   {
     "title": "Manage Campaigns",
-    "path": "https://docs.medusajs.com/user-guide/promotions/campaigns"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions/campaigns"
   },
   {
     "title": "Create a Promotion",
-    "path": "https://docs.medusajs.com/user-guide/promotions/create"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions/create"
   },
   {
     "title": "Manage Promotions",
-    "path": "https://docs.medusajs.com/user-guide/promotions/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions/manage"
   },
   {
     "title": "Promotions Overview",
-    "path": "https://docs.medusajs.com/user-guide/promotions"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions"
   },
   {
     "title": "Extend Promotion",

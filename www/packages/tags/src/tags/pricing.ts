@@ -1,15 +1,15 @@
 export const pricing = [
   {
     "title": "Create a Price List",
-    "path": "https://docs.medusajs.com/user-guide/price-lists/create"
+    "path": "https://docs.medusajs.com/user-guide/en/price-lists/create"
   },
   {
     "title": "Manage Price Lists",
-    "path": "https://docs.medusajs.com/user-guide/price-lists/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/price-lists/manage"
   },
   {
     "title": "Price Lists Overview",
-    "path": "https://docs.medusajs.com/user-guide/price-lists"
+    "path": "https://docs.medusajs.com/user-guide/en/price-lists"
   },
   {
     "title": "Get Variant Prices",

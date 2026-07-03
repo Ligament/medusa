@@ -1,15 +1,15 @@
 export const inventory = [
   {
     "title": "Manage Inventory Items",
-    "path": "https://docs.medusajs.com/user-guide/inventory/inventory"
+    "path": "https://docs.medusajs.com/user-guide/en/inventory/inventory"
   },
   {
     "title": "Inventory Overview",
-    "path": "https://docs.medusajs.com/user-guide/inventory"
+    "path": "https://docs.medusajs.com/user-guide/en/inventory"
   },
   {
     "title": "Manage Reservations",
-    "path": "https://docs.medusajs.com/user-guide/inventory/reservations"
+    "path": "https://docs.medusajs.com/user-guide/en/inventory/reservations"
   },
   {
     "title": "Inventory Kits",

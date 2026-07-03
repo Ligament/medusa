@@ -4,6 +4,7 @@ import { globalConfig } from "docs-ui"
 import { basePathUrl } from "../utils/base-path-url"
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "/user-guide"
 
 export const config: DocsConfig = {
   ...globalConfig,
@@ -11,13 +12,13 @@ export const config: DocsConfig = {
   description:
     "Explore and learn how to use the Medusa Admin. Learn how to manage products, orders, customers, and more within the Medusa Admin dashboard.",
   baseUrl,
-  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
+  basePath,
   sidebars: generatedSidebars as Sidebar.Sidebar[],
   project: {
     title: "User Guide",
     key: "user-guide",
   },
-  logo: `${process.env.NEXT_PUBLIC_BASE_PATH}/images/logo.png`,
+  logo: `${basePath}/images/logo.png`,
   breadcrumbOptions: {
     startItems: [
       {

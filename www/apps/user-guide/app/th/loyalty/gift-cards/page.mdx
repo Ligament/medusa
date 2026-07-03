@@ -1,0 +1,42 @@
+---
+sidebar_autogenerate_exclude: true
+sidebar_label: "ภาพรวมบัตรของขวัญ (Gift Cards)"
+tags:
+  - user guide
+  - loyalty
+products:
+  - loyalty
+---
+
+import { Prerequisites } from "docs-ui"
+
+export const metadata = {
+  title: `บัตรของขวัญ (Gift Cards) ใน Medusa Admin`,
+}
+
+# {metadata.title}
+
+<Prerequisites
+  items={[
+    {
+      text: "ติดตั้งปลั๊กอิน Loyalty เรียบร้อยแล้ว",
+      link: "!resources!/commerce-modules/loyalty#1-install-the-loyalty-plugin",
+    },
+  ]}
+/>
+
+บัตรของขวัญ (Gift Cards) คือรหัสเฉพาะที่คุณออกให้แก่ลูกค้าโดยตรง บัตรของขวัญแต่ละใบจะระบุสกุลเงิน มูลค่าเริ่มต้น และวันหมดอายุ (ระบุหรือไม่ก็ได้)
+
+ลูกค้าสามารถนำรหัสบัตรของขวัญไปใช้งานในขั้นตอนการชำระเงินเพื่อหักลบยอดเงินคงเหลือของบัตรออกจากยอดรวมของคำสั่งซื้อ
+
+<Note>
+
+บัตรของขวัญ (Gift Cards) มีความแตกต่างจากสินค้าประเภทบัตรของขวัญ (Gift Card Products) โดยบัตรของขวัญคือรหัสที่คุณเป็นผู้ออกให้โดยตรง ในขณะที่สินค้าประเภทบัตรของขวัญคือสินค้าหน้าร้านที่ลูกค้าสามารถเลือกซื้อได้ ซึ่งหลังจากซื้อแล้วระบบจะสร้างบัตรของขวัญส่งให้พวกเขา ศึกษาเพิ่มเติมได้ในคู่มือ [สินค้าประเภทบัตรของขวัญ](../gift-card-products/page.mdx)
+
+</Note>
+
+---
+
+## หัวข้อย่อย
+
+- [จัดการบัตรของขวัญ](./manage/page.mdx)

@@ -13,16 +13,17 @@ import {
   ScrollControllerProvider,
   SiteConfigProvider,
 } from "docs-ui"
+import { DocsConfig } from "types"
 import SidebarProvider from "./sidebar"
 import SearchProvider from "./search"
-import { config } from "../config"
 import { MainNavProvider } from "./main-nav"
 
 type ProvidersProps = {
   children?: React.ReactNode
+  config: DocsConfig
 }
 
-const Providers = ({ children }: ProvidersProps) => {
+const Providers = ({ children, config }: ProvidersProps) => {
   return (
     <AnalyticsProvider reoDevKey={process.env.NEXT_PUBLIC_REO_DEV_CLIENT_ID}>
       <SiteConfigProvider config={config}>
@@ -32,7 +33,7 @@ const Providers = ({ children }: ProvidersProps) => {
               <LearningPathProvider>
                 <NotificationProvider>
                   <ScrollControllerProvider scrollableSelector="#main">
-                    <SidebarProvider>
+                    <SidebarProvider config={config}>
                       <PaginationProvider>
                         <MainNavProvider>
                           <SearchProvider>

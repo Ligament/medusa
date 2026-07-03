@@ -1,23 +1,23 @@
 export const fulfillment = [
   {
     "title": "Manage Order Fulfillments",
-    "path": "https://docs.medusajs.com/user-guide/orders/fulfillments"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/fulfillments"
   },
   {
     "title": "Manage Shipping Options",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/locations"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/locations"
   },
   {
     "title": "Locations & Shipping Overview",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping"
   },
   {
     "title": "Manage Shipping Option Types",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/shipping-option-types"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/shipping-option-types"
   },
   {
     "title": "Manage Shipping Profiles",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/shipping-profiles"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/shipping-profiles"
   },
   {
     "title": "Reservations Lifecycle",

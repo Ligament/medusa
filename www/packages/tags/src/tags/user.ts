@@ -1,19 +1,19 @@
 export const user = [
   {
     "title": "Reset Password",
-    "path": "https://docs.medusajs.com/user-guide/reset-password"
+    "path": "https://docs.medusajs.com/user-guide/en/reset-password"
   },
   {
     "title": "Manage Profile",
-    "path": "https://docs.medusajs.com/user-guide/settings/profile"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/profile"
   },
   {
     "title": "Manage Invites",
-    "path": "https://docs.medusajs.com/user-guide/settings/users/invites"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/users/invites"
   },
   {
     "title": "Manage Users",
-    "path": "https://docs.medusajs.com/user-guide/settings/users"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/users"
   },
   {
     "title": "How to Add Custom Authentication in Medusa Admin",

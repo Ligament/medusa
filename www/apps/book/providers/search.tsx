@@ -14,19 +14,19 @@ const SearchProvider = ({ children }: SearchProviderProps) => {
         appId: process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || "temp",
         apiKey: process.env.NEXT_PUBLIC_ALGOLIA_API_KEY || "temp",
         mainIndexName:
-          process.env.NEXT_PUBLIC_DOCS_ALGOLIA_INDEX_NAME || "temp",
+          process.env.NEXT_PUBLIC_DOCS_ALGOLIA_INDEX_NAME || "temp-docs",
       }}
       indices={[
         {
-          value: process.env.NEXT_PUBLIC_DOCS_ALGOLIA_INDEX_NAME || "temp",
+          value: process.env.NEXT_PUBLIC_DOCS_ALGOLIA_INDEX_NAME || "temp-docs",
           title: "Docs",
         },
         {
-          value: process.env.NEXT_PUBLIC_API_ALGOLIA_INDEX_NAME || "temp",
+          value: process.env.NEXT_PUBLIC_API_ALGOLIA_INDEX_NAME || "temp-api",
           title: "Store & Admin API",
         },
       ]}
-      defaultIndex={process.env.NEXT_PUBLIC_DOCS_ALGOLIA_INDEX_NAME || "temp"}
+      defaultIndex={process.env.NEXT_PUBLIC_DOCS_ALGOLIA_INDEX_NAME || "temp-docs"}
       searchProps={{
         isLoading: false,
         suggestions: [

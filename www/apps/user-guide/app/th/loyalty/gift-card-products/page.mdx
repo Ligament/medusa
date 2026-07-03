@@ -1,0 +1,42 @@
+---
+sidebar_autogenerate_exclude: true
+sidebar_label: "ภาพรวมสินค้าประเภทบัตรของขวัญ (Gift Card Products)"
+tags:
+  - user guide
+  - loyalty
+products:
+  - loyalty
+---
+
+import { Prerequisites } from "docs-ui"
+
+export const metadata = {
+  title: `สินค้าประเภทบัตรของขวัญ (Gift Card Products) ใน Medusa Admin`,
+}
+
+# {metadata.title}
+
+<Prerequisites
+  items={[
+    {
+      text: "ติดตั้งปลั๊กอิน Loyalty เรียบร้อยแล้ว",
+      link: "!resources!/commerce-modules/loyalty#1-install-the-loyalty-plugin",
+    },
+  ]}
+/>
+
+สินค้าประเภทบัตรของขวัญ (Gift Card Products) คือสินค้าบนหน้าร้านที่ลูกค้าสามารถเลือกซื้อเพื่อรับบัตรของขวัญได้ เมื่อลูกค้าสั่งซื้อสินค้าประเภทบัตรของขวัญ ระบบจะสร้างบัตรของขวัญส่งให้พวกเขาโดยอัตโนมัติ
+
+คุณสามารถกำหนดมูลค่าราคาของบัตรของขวัญ (denominations) ล่วงหน้า จัดการไฟล์สื่อ/รูปภาพ และควบคุมช่องทางการขายที่สินค้านี้จะมีวางจำหน่ายได้
+
+<Note>
+
+สินค้าประเภทบัตรของขวัญ (Gift Card Products) มีความแตกต่างจากบัตรของขวัญ (Gift Cards) โดยสินค้าประเภทบัตรของขวัญคือรายการสินค้าที่ลูกค้าสามารถเลือกซื้อได้บนหน้าร้าน ในขณะที่บัตรของขวัญคือรหัสเฉพาะที่จะถูกออกหลังจากมีการซื้อสินค้าประเภทนี้ หรือถูกสร้างขึ้นโดยคุณโดยตรง ศึกษาเพิ่มเติมได้ในคู่มือ [บัตรของขวัญ](../gift-cards/page.mdx)
+
+</Note>
+
+---
+
+## หัวข้อย่อย
+
+- [จัดการสินค้าประเภทบัตรของขวัญ](./manage/page.mdx)

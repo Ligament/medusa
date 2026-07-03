@@ -1,59 +1,59 @@
 export const order = [
   {
     "title": "Manage Order Claims",
-    "path": "https://docs.medusajs.com/user-guide/orders/claims"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/claims"
   },
   {
     "title": "Create Draft Order",
-    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders/create"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders/create"
   },
   {
     "title": "Manage Draft Order",
-    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders/manage"
   },
   {
     "title": "Draft Orders",
-    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders"
   },
   {
     "title": "Edit Order Items",
-    "path": "https://docs.medusajs.com/user-guide/orders/edit"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/edit"
   },
   {
     "title": "Manage Order Exchanges",
-    "path": "https://docs.medusajs.com/user-guide/orders/exchanges"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/exchanges"
   },
   {
     "title": "Export Orders",
-    "path": "https://docs.medusajs.com/user-guide/orders/export"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/export"
   },
   {
     "title": "Manage Order Fulfillments",
-    "path": "https://docs.medusajs.com/user-guide/orders/fulfillments"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/fulfillments"
   },
   {
     "title": "Manage Order Details",
-    "path": "https://docs.medusajs.com/user-guide/orders/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/manage"
   },
   {
     "title": "Orders Overview",
-    "path": "https://docs.medusajs.com/user-guide/orders"
+    "path": "https://docs.medusajs.com/user-guide/en/orders"
   },
   {
     "title": "Manage Order Payments",
-    "path": "https://docs.medusajs.com/user-guide/orders/payments"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/payments"
   },
   {
     "title": "Manage Order Returns",
-    "path": "https://docs.medusajs.com/user-guide/orders/returns"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/returns"
   },
   {
     "title": "Manage Refund Reasons",
-    "path": "https://docs.medusajs.com/user-guide/settings/refund-reasons"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/refund-reasons"
   },
   {
     "title": "Manage Return Reasons",
-    "path": "https://docs.medusajs.com/user-guide/settings/return-reasons"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/return-reasons"
   },
   {
     "title": "Reservations Lifecycle",

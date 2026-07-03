@@ -1,266 +1,266 @@
 export const userGuide = [
   {
     "title": "Manage Customer Groups",
-    "path": "https://docs.medusajs.com/user-guide/customers/groups"
+    "path": "https://docs.medusajs.com/user-guide/en/customers/groups"
   },
   {
     "title": "Manage Customers",
-    "path": "https://docs.medusajs.com/user-guide/customers/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/customers/manage"
   },
   {
     "title": "Customers Overview",
-    "path": "https://docs.medusajs.com/user-guide/customers"
+    "path": "https://docs.medusajs.com/user-guide/en/customers"
   },
   {
     "title": "Manage Inventory Items",
-    "path": "https://docs.medusajs.com/user-guide/inventory/inventory"
+    "path": "https://docs.medusajs.com/user-guide/en/inventory/inventory"
   },
   {
     "title": "Inventory Overview",
-    "path": "https://docs.medusajs.com/user-guide/inventory"
+    "path": "https://docs.medusajs.com/user-guide/en/inventory"
   },
   {
     "title": "Manage Reservations",
-    "path": "https://docs.medusajs.com/user-guide/inventory/reservations"
+    "path": "https://docs.medusajs.com/user-guide/en/inventory/reservations"
   },
   {
     "title": "Manage Gift Card Products",
-    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-card-products/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-card-products/manage"
   },
   {
     "title": "Gift Card Products Overview",
-    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-card-products"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-card-products"
   },
   {
     "title": "Manage Gift Cards",
-    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-cards/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-cards/manage"
   },
   {
     "title": "Gift Cards Overview",
-    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-cards"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-cards"
   },
   {
     "title": "Loyalty Features in Medusa Admin",
-    "path": "https://docs.medusajs.com/user-guide/loyalty"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty"
   },
   {
     "title": "Manage Store Credits",
-    "path": "https://docs.medusajs.com/user-guide/loyalty/store-credits/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty/store-credits/manage"
   },
   {
     "title": "Store Credits Overview",
-    "path": "https://docs.medusajs.com/user-guide/loyalty/store-credits"
+    "path": "https://docs.medusajs.com/user-guide/en/loyalty/store-credits"
   },
   {
     "title": "Manage Order Claims",
-    "path": "https://docs.medusajs.com/user-guide/orders/claims"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/claims"
   },
   {
     "title": "Create Draft Order",
-    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders/create"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders/create"
   },
   {
     "title": "Manage Draft Order",
-    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders/manage"
   },
   {
     "title": "Draft Orders",
-    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders"
   },
   {
     "title": "Edit Order Items",
-    "path": "https://docs.medusajs.com/user-guide/orders/edit"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/edit"
   },
   {
     "title": "Manage Order Exchanges",
-    "path": "https://docs.medusajs.com/user-guide/orders/exchanges"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/exchanges"
   },
   {
     "title": "Export Orders",
-    "path": "https://docs.medusajs.com/user-guide/orders/export"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/export"
   },
   {
     "title": "Manage Order Fulfillments",
-    "path": "https://docs.medusajs.com/user-guide/orders/fulfillments"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/fulfillments"
   },
   {
     "title": "Manage Order Details",
-    "path": "https://docs.medusajs.com/user-guide/orders/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/manage"
   },
   {
     "title": "Orders Overview",
-    "path": "https://docs.medusajs.com/user-guide/orders"
+    "path": "https://docs.medusajs.com/user-guide/en/orders"
   },
   {
     "title": "Manage Order Payments",
-    "path": "https://docs.medusajs.com/user-guide/orders/payments"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/payments"
   },
   {
     "title": "Manage Order Returns",
-    "path": "https://docs.medusajs.com/user-guide/orders/returns"
+    "path": "https://docs.medusajs.com/user-guide/en/orders/returns"
   },
   {
     "title": "Create a Price List",
-    "path": "https://docs.medusajs.com/user-guide/price-lists/create"
+    "path": "https://docs.medusajs.com/user-guide/en/price-lists/create"
   },
   {
     "title": "Manage Price Lists",
-    "path": "https://docs.medusajs.com/user-guide/price-lists/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/price-lists/manage"
   },
   {
     "title": "Price Lists Overview",
-    "path": "https://docs.medusajs.com/user-guide/price-lists"
+    "path": "https://docs.medusajs.com/user-guide/en/price-lists"
   },
   {
     "title": "Manage Product Categories",
-    "path": "https://docs.medusajs.com/user-guide/products/categories"
+    "path": "https://docs.medusajs.com/user-guide/en/products/categories"
   },
   {
     "title": "Manage Product Collections",
-    "path": "https://docs.medusajs.com/user-guide/products/collections"
+    "path": "https://docs.medusajs.com/user-guide/en/products/collections"
   },
   {
     "title": "Create Bundle Product",
-    "path": "https://docs.medusajs.com/user-guide/products/create/bundle"
+    "path": "https://docs.medusajs.com/user-guide/en/products/create/bundle"
   },
   {
     "title": "Create Multi-Part Product",
-    "path": "https://docs.medusajs.com/user-guide/products/create/multi-part"
+    "path": "https://docs.medusajs.com/user-guide/en/products/create/multi-part"
   },
   {
     "title": "Create Product",
-    "path": "https://docs.medusajs.com/user-guide/products/create"
+    "path": "https://docs.medusajs.com/user-guide/en/products/create"
   },
   {
     "title": "Edit Product",
-    "path": "https://docs.medusajs.com/user-guide/products/edit"
+    "path": "https://docs.medusajs.com/user-guide/en/products/edit"
   },
   {
     "title": "Export Products",
-    "path": "https://docs.medusajs.com/user-guide/products/export"
+    "path": "https://docs.medusajs.com/user-guide/en/products/export"
   },
   {
     "title": "Import Products",
-    "path": "https://docs.medusajs.com/user-guide/products/import"
+    "path": "https://docs.medusajs.com/user-guide/en/products/import"
   },
   {
     "title": "Manage Product Options",
-    "path": "https://docs.medusajs.com/user-guide/products/options"
+    "path": "https://docs.medusajs.com/user-guide/en/products/options"
   },
   {
     "title": "Products Overview",
-    "path": "https://docs.medusajs.com/user-guide/products"
+    "path": "https://docs.medusajs.com/user-guide/en/products"
   },
   {
     "title": "Manage Product Variants",
-    "path": "https://docs.medusajs.com/user-guide/products/variants"
+    "path": "https://docs.medusajs.com/user-guide/en/products/variants"
   },
   {
     "title": "Manage Campaigns",
-    "path": "https://docs.medusajs.com/user-guide/promotions/campaigns"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions/campaigns"
   },
   {
     "title": "Create a Promotion",
-    "path": "https://docs.medusajs.com/user-guide/promotions/create"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions/create"
   },
   {
     "title": "Manage Promotions",
-    "path": "https://docs.medusajs.com/user-guide/promotions/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions/manage"
   },
   {
     "title": "Promotions Overview",
-    "path": "https://docs.medusajs.com/user-guide/promotions"
+    "path": "https://docs.medusajs.com/user-guide/en/promotions"
   },
   {
     "title": "Reset Password",
-    "path": "https://docs.medusajs.com/user-guide/reset-password"
+    "path": "https://docs.medusajs.com/user-guide/en/reset-password"
   },
   {
     "title": "Manage Publishable API Keys",
-    "path": "https://docs.medusajs.com/user-guide/settings/developer/publishable-api-keys"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/developer/publishable-api-keys"
   },
   {
     "title": "Manage Secret API Keys",
-    "path": "https://docs.medusajs.com/user-guide/settings/developer/secret-api-keys"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/developer/secret-api-keys"
   },
   {
     "title": "Workflow Executions",
-    "path": "https://docs.medusajs.com/user-guide/settings/developer/workflows"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/developer/workflows"
   },
   {
     "title": "Manage Locations",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/locations"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/locations"
   },
   {
     "title": "Locations & Shipping Overview",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping"
   },
   {
     "title": "Manage Shipping Option Types",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/shipping-option-types"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/shipping-option-types"
   },
   {
     "title": "Manage Shipping Profiles",
-    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/shipping-profiles"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/shipping-profiles"
   },
   {
     "title": "Manage Product Tags",
-    "path": "https://docs.medusajs.com/user-guide/settings/product-tags"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/product-tags"
   },
   {
     "title": "Manage Product Types",
-    "path": "https://docs.medusajs.com/user-guide/settings/product-types"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/product-types"
   },
   {
     "title": "Manage Profile",
-    "path": "https://docs.medusajs.com/user-guide/settings/profile"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/profile"
   },
   {
     "title": "Manage Property Labels",
-    "path": "https://docs.medusajs.com/user-guide/settings/property-labels"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/property-labels"
   },
   {
     "title": "Manage Refund Reasons",
-    "path": "https://docs.medusajs.com/user-guide/settings/refund-reasons"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/refund-reasons"
   },
   {
     "title": "Manage Regions",
-    "path": "https://docs.medusajs.com/user-guide/settings/regions"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/regions"
   },
   {
     "title": "Manage Return Reasons",
-    "path": "https://docs.medusajs.com/user-guide/settings/return-reasons"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/return-reasons"
   },
   {
     "title": "Manage Sales Channels",
-    "path": "https://docs.medusajs.com/user-guide/settings/sales-channels"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/sales-channels"
   },
   {
     "title": "Manage Store",
-    "path": "https://docs.medusajs.com/user-guide/settings/store"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/store"
   },
   {
     "title": "Manage Tax Regions",
-    "path": "https://docs.medusajs.com/user-guide/settings/tax-regions"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/tax-regions"
   },
   {
     "title": "Manage Translations",
-    "path": "https://docs.medusajs.com/user-guide/settings/translations"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/translations"
   },
   {
     "title": "Manage Invites",
-    "path": "https://docs.medusajs.com/user-guide/settings/users/invites"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/users/invites"
   },
   {
     "title": "Manage Users",
-    "path": "https://docs.medusajs.com/user-guide/settings/users"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/users"
   },
   {
     "title": "Configure Layouts",
-    "path": "https://docs.medusajs.com/user-guide/tips/layout-configurations"
+    "path": "https://docs.medusajs.com/user-guide/en/tips/layout-configurations"
   },
   {
     "title": "Configure Table Views",
-    "path": "https://docs.medusajs.com/user-guide/tips/table-views"
+    "path": "https://docs.medusajs.com/user-guide/en/tips/table-views"
   }
 ]

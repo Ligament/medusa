@@ -1,55 +1,55 @@
 export const product = [
   {
     "title": "Manage Product Categories",
-    "path": "https://docs.medusajs.com/user-guide/products/categories"
+    "path": "https://docs.medusajs.com/user-guide/en/products/categories"
   },
   {
     "title": "Manage Product Collections",
-    "path": "https://docs.medusajs.com/user-guide/products/collections"
+    "path": "https://docs.medusajs.com/user-guide/en/products/collections"
   },
   {
     "title": "Create Bundle Product",
-    "path": "https://docs.medusajs.com/user-guide/products/create/bundle"
+    "path": "https://docs.medusajs.com/user-guide/en/products/create/bundle"
   },
   {
     "title": "Create Multi-Part Product",
-    "path": "https://docs.medusajs.com/user-guide/products/create/multi-part"
+    "path": "https://docs.medusajs.com/user-guide/en/products/create/multi-part"
   },
   {
     "title": "Create Product",
-    "path": "https://docs.medusajs.com/user-guide/products/create"
+    "path": "https://docs.medusajs.com/user-guide/en/products/create"
   },
   {
     "title": "Edit Product",
-    "path": "https://docs.medusajs.com/user-guide/products/edit"
+    "path": "https://docs.medusajs.com/user-guide/en/products/edit"
   },
   {
     "title": "Export Products",
-    "path": "https://docs.medusajs.com/user-guide/products/export"
+    "path": "https://docs.medusajs.com/user-guide/en/products/export"
   },
   {
     "title": "Import Products",
-    "path": "https://docs.medusajs.com/user-guide/products/import"
+    "path": "https://docs.medusajs.com/user-guide/en/products/import"
   },
   {
     "title": "Manage Product Options",
-    "path": "https://docs.medusajs.com/user-guide/products/options"
+    "path": "https://docs.medusajs.com/user-guide/en/products/options"
   },
   {
     "title": "Products Overview",
-    "path": "https://docs.medusajs.com/user-guide/products"
+    "path": "https://docs.medusajs.com/user-guide/en/products"
   },
   {
     "title": "Manage Product Variants",
-    "path": "https://docs.medusajs.com/user-guide/products/variants"
+    "path": "https://docs.medusajs.com/user-guide/en/products/variants"
   },
   {
     "title": "Manage Product Tags",
-    "path": "https://docs.medusajs.com/user-guide/settings/product-tags"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/product-tags"
   },
   {
     "title": "Manage Product Types",
-    "path": "https://docs.medusajs.com/user-guide/settings/product-types"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/product-types"
   },
   {
     "title": "Inventory Kits",

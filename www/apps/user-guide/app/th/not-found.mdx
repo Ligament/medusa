@@ -1,0 +1,53 @@
+---
+hide_content_menu: true
+---
+
+import { CardList, H1, SimilarPages } from "docs-ui"
+import {
+  BookOpen,
+  AcademicCapSolid,
+  ComputerDesktopSolid,
+  BuildingStorefront
+} from "@medusajs/icons"
+
+export const metadata = {
+  title: `ไม่พบหน้านี้`,
+}
+
+# {metadata.title}
+
+ขออภัย ไม่พบหน้าที่คุณกำลังมองหา หรือหน้านี้อาจไม่มีอยู่แล้ว
+
+หากคุณกำลังมองหาเอกสารประกอบของ Medusa v1 เอกสารดังกล่าวได้ถูกย้ายไปที่ [docs.medusajs.com/v1](https://docs.medusajs.com/v1) แล้ว
+
+หากคุณคิดว่านี่เป็นข้อผิดพลาดของระบบ โปรด [รายงานปัญหาบน GitHub](https://github.com/medusajs/medusa/issues/new?assignees=&labels=type%3A+docs&template=docs.yml)
+
+<SimilarPages />
+
+## แหล่งข้อมูลอื่นๆ
+
+<CardList
+  itemsPerRow={2}
+  items={[
+    {
+      title: "เอกสารเริ่มต้นใช้งาน",
+      href: "!docs!/learn",
+      icon: BookOpen
+    },
+    {
+      title: "โมดูลอีคอมเมิร์ซ (Commerce Modules)",
+      href: "!resources!/commerce-modules",
+      icon: AcademicCapSolid
+    },
+    {
+      title: "ข้อมูลอ้างอิง API ผู้ดูแลระบบ (Admin API)",
+      href: "!api!/admin",
+      icon: ComputerDesktopSolid
+    },
+    {
+      title: "ข้อมูลอ้างอิง API ร้านค้า (Store API)",
+      href: "!api!/store",
+      icon: BuildingStorefront
+    }
+  ]}
+/>

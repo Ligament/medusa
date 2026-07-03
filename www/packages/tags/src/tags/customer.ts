@@ -1,15 +1,15 @@
 export const customer = [
   {
     "title": "Manage Customer Groups",
-    "path": "https://docs.medusajs.com/user-guide/customers/groups"
+    "path": "https://docs.medusajs.com/user-guide/en/customers/groups"
   },
   {
     "title": "Manage Customers",
-    "path": "https://docs.medusajs.com/user-guide/customers/manage"
+    "path": "https://docs.medusajs.com/user-guide/en/customers/manage"
   },
   {
     "title": "Customers Overview",
-    "path": "https://docs.medusajs.com/user-guide/customers"
+    "path": "https://docs.medusajs.com/user-guide/en/customers"
   },
   {
     "title": "Extend Customer",

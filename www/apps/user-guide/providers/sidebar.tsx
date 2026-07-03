@@ -1,15 +1,17 @@
 "use client"
+
 import {
   SidebarProvider as UiSidebarProvider,
   useScrollController,
 } from "docs-ui"
-import { config } from "@/config"
+import { DocsConfig } from "types"
 
 type SidebarProviderProps = {
   children?: React.ReactNode
+  config: DocsConfig
 }
 
-const SidebarProvider = ({ children }: SidebarProviderProps) => {
+const SidebarProvider = ({ children, config }: SidebarProviderProps) => {
   const { scrollableElement } = useScrollController()
 
   return (

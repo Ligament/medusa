@@ -5,7 +5,7 @@ export const salesChannel = [
   },
   {
     "title": "Manage Sales Channels",
-    "path": "https://docs.medusajs.com/user-guide/settings/sales-channels"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/sales-channels"
   },
   {
     "title": "Get Variant Inventory",

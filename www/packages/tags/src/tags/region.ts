@@ -1,7 +1,7 @@
 export const region = [
   {
     "title": "Manage Regions",
-    "path": "https://docs.medusajs.com/user-guide/settings/regions"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/regions"
   },
   {
     "title": "Implement Express Checkout with Medusa",

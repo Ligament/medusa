@@ -1,11 +1,11 @@
 export const translation = [
   {
     "title": "Manage Store Locales",
-    "path": "https://docs.medusajs.com/user-guide/settings/store"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/store"
   },
   {
     "title": "Manage Translations",
-    "path": "https://docs.medusajs.com/user-guide/settings/translations"
+    "path": "https://docs.medusajs.com/user-guide/en/settings/translations"
   },
   {
     "title": "Storefront Localization",
