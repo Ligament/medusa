@@ -1,19 +1,35 @@
 export const user = [
   {
     "title": "Reset Password",
-    "path": "https://docs.medusajs.com/user-guide/en/reset-password"
+    "path": "https://docs.medusajs.com/user-guide/reset-password"
   },
   {
     "title": "Manage Profile",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/profile"
+    "path": "https://docs.medusajs.com/user-guide/settings/profile"
   },
   {
     "title": "Manage Invites",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/users/invites"
+    "path": "https://docs.medusajs.com/user-guide/settings/users/invites"
   },
   {
     "title": "Manage Users",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/users"
+    "path": "https://docs.medusajs.com/user-guide/settings/users"
+  },
+  {
+    "title": "รีเซ็ตรหัสผ่าน",
+    "path": "https://docs.medusajs.com/user-guide/th/reset-password"
+  },
+  {
+    "title": "จัดการโปรไฟล์",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/profile"
+  },
+  {
+    "title": "จัดการการเชิญผู้ใช้",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/users/invites"
+  },
+  {
+    "title": "จัดการผู้ใช้",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/users"
   },
   {
     "title": "How to Add Custom Authentication in Medusa Admin",

@@ -70,7 +70,13 @@ const THAI_TRANSLATIONS: Record<string, string> = {
   "Secret API Keys": "คีย์ API ลับ",
   "Workflows": "เวิร์กโฟลว์",
   "Profile": "โปรไฟล์",
+  "Property Labels": "ป้ายกำกับคุณสมบัติ",
   "Documentation": "เอกสารประกอบ",
+  "Bulk Editor in Medusa Admin": "เครื่องมือแก้ไขแบบกลุ่ม",
+  "Configure Layouts": "ปรับแต่งเลย์เอาต์",
+  "Configure Table Views": "ปรับแต่งมุมมองตาราง",
+  "Languages in Medusa Admin": "ภาษาใน Medusa Admin",
+  "Lists": "รายการตาราง",
 }
 
 function translateText(text: string): string {

@@ -1,27 +1,47 @@
 export const fulfillment = [
   {
     "title": "Manage Order Fulfillments",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/fulfillments"
+    "path": "https://docs.medusajs.com/user-guide/orders/fulfillments"
   },
   {
     "title": "Manage Shipping Options",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/locations"
+    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/locations"
   },
   {
     "title": "Locations & Shipping Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping"
+    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping"
   },
   {
     "title": "Manage Shipping Option Types",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/shipping-option-types"
+    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/shipping-option-types"
   },
   {
     "title": "Manage Shipping Profiles",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/shipping-profiles"
+    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/shipping-profiles"
   },
   {
     "title": "Reservations Lifecycle",
     "path": "https://docs.medusajs.com/resources/commerce-modules/inventory/reservations-lifecycle"
+  },
+  {
+    "title": "จัดการการดำเนินการจัดส่งคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/fulfillments"
+  },
+  {
+    "title": "จัดการตัวเลือกการจัดส่ง",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/locations-and-shipping/locations"
+  },
+  {
+    "title": "ภาพรวมสถานที่และระบบการจัดส่ง",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/locations-and-shipping"
+  },
+  {
+    "title": "จัดการประเภทตัวเลือกการจัดส่ง",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/locations-and-shipping/shipping-option-types"
+  },
+  {
+    "title": "จัดการโปรไฟล์การจัดส่ง",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/locations-and-shipping/shipping-profiles"
   },
   {
     "title": "Shipping Option Price Rules",

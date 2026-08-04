@@ -1,19 +1,35 @@
 export const promotion = [
   {
     "title": "Manage Campaigns",
-    "path": "https://docs.medusajs.com/user-guide/en/promotions/campaigns"
+    "path": "https://docs.medusajs.com/user-guide/promotions/campaigns"
   },
   {
     "title": "Create a Promotion",
-    "path": "https://docs.medusajs.com/user-guide/en/promotions/create"
+    "path": "https://docs.medusajs.com/user-guide/promotions/create"
   },
   {
     "title": "Manage Promotions",
-    "path": "https://docs.medusajs.com/user-guide/en/promotions/manage"
+    "path": "https://docs.medusajs.com/user-guide/promotions/manage"
   },
   {
     "title": "Promotions Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/promotions"
+    "path": "https://docs.medusajs.com/user-guide/promotions"
+  },
+  {
+    "title": "จัดการแคมเปญ",
+    "path": "https://docs.medusajs.com/user-guide/th/promotions/campaigns"
+  },
+  {
+    "title": "สร้างโปรโมชัน",
+    "path": "https://docs.medusajs.com/user-guide/th/promotions/create"
+  },
+  {
+    "title": "จัดการโปรโมชัน",
+    "path": "https://docs.medusajs.com/user-guide/th/promotions/manage"
+  },
+  {
+    "title": "ภาพรวมโปรโมชัน",
+    "path": "https://docs.medusajs.com/user-guide/th/promotions"
   },
   {
     "title": "Extend Promotion",

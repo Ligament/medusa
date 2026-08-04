@@ -9,7 +9,11 @@ export const auth = [
   },
   {
     "title": "Reset Password",
-    "path": "https://docs.medusajs.com/user-guide/en/reset-password"
+    "path": "https://docs.medusajs.com/user-guide/reset-password"
+  },
+  {
+    "title": "รีเซ็ตรหัสผ่าน",
+    "path": "https://docs.medusajs.com/user-guide/th/reset-password"
   },
   {
     "title": "How to Add Custom Authentication in Medusa Admin",

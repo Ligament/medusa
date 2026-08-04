@@ -1,15 +1,27 @@
 export const inventory = [
   {
     "title": "Manage Inventory Items",
-    "path": "https://docs.medusajs.com/user-guide/en/inventory/inventory"
+    "path": "https://docs.medusajs.com/user-guide/inventory/inventory"
   },
   {
     "title": "Inventory Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/inventory"
+    "path": "https://docs.medusajs.com/user-guide/inventory"
   },
   {
     "title": "Manage Reservations",
-    "path": "https://docs.medusajs.com/user-guide/en/inventory/reservations"
+    "path": "https://docs.medusajs.com/user-guide/inventory/reservations"
+  },
+  {
+    "title": "จัดการรายการสินค้าคงคลัง",
+    "path": "https://docs.medusajs.com/user-guide/th/inventory/inventory"
+  },
+  {
+    "title": "ภาพรวมสินค้าคงคลัง",
+    "path": "https://docs.medusajs.com/user-guide/th/inventory"
+  },
+  {
+    "title": "จัดการการจองสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/inventory/reservations"
   },
   {
     "title": "Inventory Kits",

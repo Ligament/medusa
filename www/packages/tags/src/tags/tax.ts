@@ -1,7 +1,11 @@
 export const tax = [
   {
     "title": "Manage Tax Regions",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/tax-regions"
+    "path": "https://docs.medusajs.com/user-guide/settings/tax-regions"
+  },
+  {
+    "title": "จัดการเขตภาษี",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/tax-regions"
   },
   {
     "title": "Get Variant Price with Taxes",

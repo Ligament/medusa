@@ -8,7 +8,8 @@ products:
     - pricing
 ---
 
-import { EllipsisHorizontal } from "@medusajs/icons"
+import { EllipsisHorizontal, ArrowsPointingOut, PlusMini, XMarkMini } from "@medusajs/icons"
+import { InlineIcon } from "docs-ui"
 
 export const metadata = {
   title: `สร้างรายการราคาใน Medusa Admin`,
@@ -63,11 +64,35 @@ export const metadata = {
 
 ## ขั้นตอนที่ 3: Prices (ราคา)
 
-In the last step, you'll use the [Bulk Editor](../../tips/bulk-editor/page.mdx) to enter the new prices for the variants of each product you selected. You can set the prices for every currency and region in your store.
-
 ในขั้นตอนสุดท้าย คุณจะใช้ [เครื่องมือแก้ไขแบบกลุ่ม (Bulk Editor)](../../tips/bulk-editor/page.mdx) เพื่อกรอกราคาใหม่สำหรับตัวเลือกย่อยของแต่ละสินค้าที่คุณเลือกไว้ คุณสามารถกำหนดราคาของทุกสกุลเงินและทุกภูมิภาคที่มีอยู่ในร้านค้าของคุณได้
 
-เมื่อเรียบร้อยแล้ว ให้คลิกปุ่ม Save เพื่อสร้างรายการราคา
+### กำหนดราคาตามจำนวนสินค้า
+
+<Note>
+
+การกำหนดราคาตามจำนวนสินค้าใช้งานได้ตั้งแต่ [Medusa v2.17.2](https://github.com/medusajs/medusa/releases/tag/v2.17.2) เป็นต้นไป
+
+</Note>
+
+ในแต่ละคอลัมน์ของสกุลเงินหรือภูมิภาคใน Bulk Editor คุณสามารถกำหนดราคาที่จะมีผลเฉพาะเมื่อลูกค้าสั่งซื้อในช่วงจำนวนที่กำหนดไว้ได้ ตัวอย่างเช่น คุณสามารถให้ราคาที่ถูกลงเมื่อลูกค้าสั่งซื้อตั้งแต่สิบชิ้นขึ้นไป
+
+วิธีกำหนดราคาตามจำนวนสินค้าให้กับตัวเลือกย่อย:
+
+1. คลิกที่ช่องของสกุลเงินหรือภูมิภาคที่คุณต้องการกำหนดราคาตามจำนวนสินค้า
+2. คลิกไอคอน <InlineIcon Icon={ArrowsPointingOut} alt="arrows-pointing-out" /> ที่อยู่ถัดจากช่องราคาใน Bulk Editor
+3. ในฟอร์มที่เปิดขึ้นมา คุณสามารถกำหนดระดับราคา (price tier) ได้ตั้งแต่หนึ่งระดับขึ้นไป โดยคลิกปุ่ม **Add Price** เพื่อเพิ่มระดับราคา
+4. ในแต่ละระดับราคา ให้กรอกข้อมูลในช่องต่อไปนี้:
+    - **Product variant price**: ราคาสำหรับช่วงจำนวนนี้
+    - **Minimum cart quantity**: จำนวนสั่งซื้อขั้นต่ำที่จะทำให้ราคานี้มีผล
+        - หากต้องการกำหนด ให้คลิกไอคอน <InlineIcon Icon={PlusMini} alt="plus" /> แล้วกรอกจำนวนขั้นต่ำในช่องที่ปรากฏขึ้น
+        - หากต้องการลบออก ให้คลิกไอคอน <InlineIcon Icon={XMarkMini} alt="x" /> ที่อยู่ถัดจากช่องจำนวนขั้นต่ำ
+    - **Maximum cart quantity**: จำนวนสั่งซื้อสูงสุดที่จะทำให้ราคานี้มีผล
+        - หากต้องการกำหนด ให้คลิกไอคอน <InlineIcon Icon={PlusMini} alt="plus" /> แล้วกรอกจำนวนสูงสุดในช่องที่ปรากฏขึ้น
+        - หากต้องการลบออก ให้คลิกไอคอน <InlineIcon Icon={XMarkMini} alt="x" /> ที่อยู่ถัดจากช่องจำนวนสูงสุด
+5. เพิ่มระดับราคาได้ตามต้องการสำหรับแต่ละช่วงจำนวนสินค้า
+6. เมื่อเรียบร้อยแล้ว ให้คลิกปุ่ม **Save** เพื่อใช้งานราคาตามจำนวนสินค้าที่กำหนดไว้
+
+เมื่อกำหนดราคาทั้งหมดเรียบร้อยแล้ว ให้คลิกปุ่ม Save เพื่อสร้างรายการราคา
 
 ![ฟอร์มราคาสำหรับรายการราคา](https://res.cloudinary.com/dza7lstvk/image/upload/v1739959865/User%20Guide/Screenshot_2025-02-19_at_12.10.10_PM_aaxecg.png)
 

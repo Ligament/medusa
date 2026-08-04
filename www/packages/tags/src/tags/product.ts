@@ -1,59 +1,111 @@
 export const product = [
   {
     "title": "Manage Product Categories",
-    "path": "https://docs.medusajs.com/user-guide/en/products/categories"
+    "path": "https://docs.medusajs.com/user-guide/products/categories"
   },
   {
     "title": "Manage Product Collections",
-    "path": "https://docs.medusajs.com/user-guide/en/products/collections"
+    "path": "https://docs.medusajs.com/user-guide/products/collections"
   },
   {
     "title": "Create Bundle Product",
-    "path": "https://docs.medusajs.com/user-guide/en/products/create/bundle"
+    "path": "https://docs.medusajs.com/user-guide/products/create/bundle"
   },
   {
     "title": "Create Multi-Part Product",
-    "path": "https://docs.medusajs.com/user-guide/en/products/create/multi-part"
+    "path": "https://docs.medusajs.com/user-guide/products/create/multi-part"
   },
   {
     "title": "Create Product",
-    "path": "https://docs.medusajs.com/user-guide/en/products/create"
+    "path": "https://docs.medusajs.com/user-guide/products/create"
   },
   {
     "title": "Edit Product",
-    "path": "https://docs.medusajs.com/user-guide/en/products/edit"
+    "path": "https://docs.medusajs.com/user-guide/products/edit"
   },
   {
     "title": "Export Products",
-    "path": "https://docs.medusajs.com/user-guide/en/products/export"
+    "path": "https://docs.medusajs.com/user-guide/products/export"
   },
   {
     "title": "Import Products",
-    "path": "https://docs.medusajs.com/user-guide/en/products/import"
+    "path": "https://docs.medusajs.com/user-guide/products/import"
   },
   {
     "title": "Manage Product Options",
-    "path": "https://docs.medusajs.com/user-guide/en/products/options"
+    "path": "https://docs.medusajs.com/user-guide/products/options"
   },
   {
     "title": "Products Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/products"
+    "path": "https://docs.medusajs.com/user-guide/products"
   },
   {
     "title": "Manage Product Variants",
-    "path": "https://docs.medusajs.com/user-guide/en/products/variants"
+    "path": "https://docs.medusajs.com/user-guide/products/variants"
   },
   {
     "title": "Manage Product Tags",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/product-tags"
+    "path": "https://docs.medusajs.com/user-guide/settings/product-tags"
   },
   {
     "title": "Manage Product Types",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/product-types"
+    "path": "https://docs.medusajs.com/user-guide/settings/product-types"
   },
   {
     "title": "Inventory Kits",
     "path": "https://docs.medusajs.com/resources/commerce-modules/inventory/inventory-kit"
+  },
+  {
+    "title": "จัดการหมวดหมู่สินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/categories"
+  },
+  {
+    "title": "จัดการคอลเลกชันสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/collections"
+  },
+  {
+    "title": "สร้างสินค้าจัดเซต (Bundle)",
+    "path": "https://docs.medusajs.com/user-guide/th/products/create/bundle"
+  },
+  {
+    "title": "สร้างสินค้าแบบชิ้นส่วนประกอบ (Multi-Part)",
+    "path": "https://docs.medusajs.com/user-guide/th/products/create/multi-part"
+  },
+  {
+    "title": "สร้างสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/create"
+  },
+  {
+    "title": "แก้ไขสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/edit"
+  },
+  {
+    "title": "ส่งออกสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/export"
+  },
+  {
+    "title": "นำเข้าสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/import"
+  },
+  {
+    "title": "จัดการตัวเลือกสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/options"
+  },
+  {
+    "title": "ภาพรวมสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products"
+  },
+  {
+    "title": "จัดการตัวเลือกย่อยสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/products/variants"
+  },
+  {
+    "title": "จัดการแท็กสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/product-tags"
+  },
+  {
+    "title": "จัดการประเภทสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/product-types"
   },
   {
     "title": "Variant Price Rules",

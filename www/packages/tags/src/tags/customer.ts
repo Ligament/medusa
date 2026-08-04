@@ -1,19 +1,31 @@
 export const customer = [
   {
     "title": "Manage Customer Groups",
-    "path": "https://docs.medusajs.com/user-guide/en/customers/groups"
+    "path": "https://docs.medusajs.com/user-guide/customers/groups"
   },
   {
     "title": "Manage Customers",
-    "path": "https://docs.medusajs.com/user-guide/en/customers/manage"
+    "path": "https://docs.medusajs.com/user-guide/customers/manage"
   },
   {
     "title": "Customers Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/customers"
+    "path": "https://docs.medusajs.com/user-guide/customers"
   },
   {
     "title": "Extend Customer",
     "path": "https://docs.medusajs.com/resources/commerce-modules/customer/extend"
+  },
+  {
+    "title": "จัดการกลุ่มลูกค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/customers/groups"
+  },
+  {
+    "title": "จัดการลูกค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/customers/manage"
+  },
+  {
+    "title": "ภาพรวมลูกค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/customers"
   },
   {
     "title": "Implement Customer Tiers",

@@ -1,11 +1,19 @@
 export const storeCredit = [
   {
     "title": "Manage Store Credits",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty/store-credits/manage"
+    "path": "https://docs.medusajs.com/user-guide/loyalty/store-credits/manage"
   },
   {
     "title": "Store Credits Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty/store-credits"
+    "path": "https://docs.medusajs.com/user-guide/loyalty/store-credits"
+  },
+  {
+    "title": "จัดการสโตร์เครดิต",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty/store-credits/manage"
+  },
+  {
+    "title": "ภาพรวมสโตร์เครดิต",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty/store-credits"
   },
   {
     "title": "confirmCartCreditLinesWorkflow",

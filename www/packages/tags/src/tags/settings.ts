@@ -4,6 +4,18 @@ export const settings = [
     "path": "https://docs.medusajs.com/user-guide/settings/property-labels"
   },
   {
+    "title": "จัดการป้ายกำกับคุณสมบัติ",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/property-labels"
+  },
+  {
+    "title": "ปรับแต่งเลย์เอาต์",
+    "path": "https://docs.medusajs.com/user-guide/th/tips/layout-configurations"
+  },
+  {
+    "title": "ปรับแต่งมุมมองตาราง",
+    "path": "https://docs.medusajs.com/user-guide/th/tips/table-views"
+  },
+  {
     "title": "Configure Layouts",
     "path": "https://docs.medusajs.com/user-guide/tips/layout-configurations"
   },

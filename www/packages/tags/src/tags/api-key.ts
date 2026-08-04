@@ -1,11 +1,19 @@
 export const apiKey = [
   {
     "title": "Manage Publishable API Keys",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/developer/publishable-api-keys"
+    "path": "https://docs.medusajs.com/user-guide/settings/developer/publishable-api-keys"
   },
   {
     "title": "Manage Secret API Keys",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/developer/secret-api-keys"
+    "path": "https://docs.medusajs.com/user-guide/settings/developer/secret-api-keys"
+  },
+  {
+    "title": "จัดการ Publishable API Keys",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/developer/publishable-api-keys"
+  },
+  {
+    "title": "จัดการ Secret API Keys",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/developer/secret-api-keys"
   },
   {
     "title": "Use a Publishable API Key in the Storefront",

@@ -1,67 +1,123 @@
 export const order = [
   {
     "title": "Manage Order Claims",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/claims"
+    "path": "https://docs.medusajs.com/user-guide/orders/claims"
   },
   {
     "title": "Create Draft Order",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders/create"
+    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders/create"
   },
   {
     "title": "Manage Draft Order",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders/manage"
+    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders/manage"
   },
   {
     "title": "Draft Orders",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/draft-orders"
+    "path": "https://docs.medusajs.com/user-guide/orders/draft-orders"
   },
   {
     "title": "Edit Order Items",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/edit"
+    "path": "https://docs.medusajs.com/user-guide/orders/edit"
   },
   {
     "title": "Manage Order Exchanges",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/exchanges"
+    "path": "https://docs.medusajs.com/user-guide/orders/exchanges"
   },
   {
     "title": "Export Orders",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/export"
+    "path": "https://docs.medusajs.com/user-guide/orders/export"
   },
   {
     "title": "Manage Order Fulfillments",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/fulfillments"
+    "path": "https://docs.medusajs.com/user-guide/orders/fulfillments"
   },
   {
     "title": "Manage Order Details",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/manage"
+    "path": "https://docs.medusajs.com/user-guide/orders/manage"
   },
   {
     "title": "Orders Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/orders"
+    "path": "https://docs.medusajs.com/user-guide/orders"
   },
   {
     "title": "Manage Order Payments",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/payments"
+    "path": "https://docs.medusajs.com/user-guide/orders/payments"
   },
   {
     "title": "Manage Order Returns",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/returns"
+    "path": "https://docs.medusajs.com/user-guide/orders/returns"
   },
   {
     "title": "Manage Refund Reasons",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/refund-reasons"
+    "path": "https://docs.medusajs.com/user-guide/settings/refund-reasons"
   },
   {
     "title": "Manage Return Reasons",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/return-reasons"
+    "path": "https://docs.medusajs.com/user-guide/settings/return-reasons"
   },
   {
     "title": "Reservations Lifecycle",
     "path": "https://docs.medusajs.com/resources/commerce-modules/inventory/reservations-lifecycle"
   },
   {
+    "title": "จัดการการเคลมคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/claims"
+  },
+  {
+    "title": "สร้างคำสั่งซื้อร่าง",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/draft-orders/create"
+  },
+  {
+    "title": "จัดการคำสั่งซื้อแบบร่าง",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/draft-orders/manage"
+  },
+  {
+    "title": "คำสั่งซื้อร่าง",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/draft-orders"
+  },
+  {
+    "title": "แก้ไขรายการสินค้าในคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/edit"
+  },
+  {
+    "title": "จัดการการแลกเปลี่ยนคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/exchanges"
+  },
+  {
+    "title": "ส่งออกคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/export"
+  },
+  {
+    "title": "จัดการการดำเนินการจัดส่งคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/fulfillments"
+  },
+  {
+    "title": "จัดการรายละเอียดคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/manage"
+  },
+  {
+    "title": "ภาพรวมคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders"
+  },
+  {
+    "title": "จัดการการชำระเงินของคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/payments"
+  },
+  {
+    "title": "จัดการการคืนสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/returns"
+  },
+  {
     "title": "Retrieve Order Totals Using Query",
     "path": "https://docs.medusajs.com/resources/commerce-modules/order/order-totals"
+  },
+  {
+    "title": "จัดการเหตุผลการคืนเงิน",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/refund-reasons"
+  },
+  {
+    "title": "จัดการเหตุผลการคืนสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/return-reasons"
   },
   {
     "title": "Implement Quote Management",

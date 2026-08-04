@@ -1,7 +1,11 @@
 export const workflow = [
   {
     "title": "Workflow Executions",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/developer/workflows"
+    "path": "https://docs.medusajs.com/user-guide/settings/developer/workflows"
+  },
+  {
+    "title": "การทำงานของเวิร์กโฟลว์",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/developer/workflows"
   },
   {
     "title": "createApiKeysWorkflow",

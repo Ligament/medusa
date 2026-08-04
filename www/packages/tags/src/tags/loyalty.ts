@@ -1,23 +1,43 @@
 export const loyalty = [
   {
     "title": "Manage Gift Card Products",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-card-products/manage"
+    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-card-products/manage"
   },
   {
     "title": "Gift Card Products Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-card-products"
+    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-card-products"
   },
   {
     "title": "Manage Gift Cards",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-cards/manage"
+    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-cards/manage"
   },
   {
     "title": "Gift Cards Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty/gift-cards"
+    "path": "https://docs.medusajs.com/user-guide/loyalty/gift-cards"
   },
   {
     "title": "Loyalty Features in Medusa Admin",
-    "path": "https://docs.medusajs.com/user-guide/en/loyalty"
+    "path": "https://docs.medusajs.com/user-guide/loyalty"
+  },
+  {
+    "title": "จัดการสินค้ากิฟต์การ์ด",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty/gift-card-products/manage"
+  },
+  {
+    "title": "ภาพรวมสินค้าประเภทบัตรของขวัญ (Gift Card Products)",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty/gift-card-products"
+  },
+  {
+    "title": "จัดการบัตรของขวัญ",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty/gift-cards/manage"
+  },
+  {
+    "title": "ภาพรวมบัตรของขวัญ (Gift Cards)",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty/gift-cards"
+  },
+  {
+    "title": "ฟีเจอร์ความภักดี (Loyalty) ใน Medusa Admin",
+    "path": "https://docs.medusajs.com/user-guide/th/loyalty"
   },
   {
     "title": "createGiftCardsStep",

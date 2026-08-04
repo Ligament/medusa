@@ -1,15 +1,27 @@
 export const pricing = [
   {
     "title": "Create a Price List",
-    "path": "https://docs.medusajs.com/user-guide/en/price-lists/create"
+    "path": "https://docs.medusajs.com/user-guide/price-lists/create"
   },
   {
     "title": "Manage Price Lists",
-    "path": "https://docs.medusajs.com/user-guide/en/price-lists/manage"
+    "path": "https://docs.medusajs.com/user-guide/price-lists/manage"
   },
   {
     "title": "Price Lists Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/price-lists"
+    "path": "https://docs.medusajs.com/user-guide/price-lists"
+  },
+  {
+    "title": "สร้างรายการราคา",
+    "path": "https://docs.medusajs.com/user-guide/th/price-lists/create"
+  },
+  {
+    "title": "จัดการรายการราคา",
+    "path": "https://docs.medusajs.com/user-guide/th/price-lists/manage"
+  },
+  {
+    "title": "ภาพรวมรายการราคา (Price Lists)",
+    "path": "https://docs.medusajs.com/user-guide/th/price-lists"
   },
   {
     "title": "Get Variant Prices",

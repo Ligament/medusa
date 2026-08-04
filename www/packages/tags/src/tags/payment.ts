@@ -1,7 +1,11 @@
 export const payment = [
   {
     "title": "Manage Order Payments",
-    "path": "https://docs.medusajs.com/user-guide/en/orders/payments"
+    "path": "https://docs.medusajs.com/user-guide/orders/payments"
+  },
+  {
+    "title": "จัดการการชำระเงินของคำสั่งซื้อ",
+    "path": "https://docs.medusajs.com/user-guide/th/orders/payments"
   },
   {
     "title": "Saved Payment Methods",

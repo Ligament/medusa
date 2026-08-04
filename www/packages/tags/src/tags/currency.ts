@@ -1,7 +1,11 @@
 export const currency = [
   {
     "title": "Manage Store",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/store"
+    "path": "https://docs.medusajs.com/user-guide/settings/store"
+  },
+  {
+    "title": "จัดการร้านค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/store"
   },
   {
     "title": "currency",

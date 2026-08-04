@@ -1,15 +1,23 @@
 export const stockLocation = [
   {
     "title": "Manage Locations",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping/locations"
+    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping/locations"
   },
   {
     "title": "Locations & Shipping Overview",
-    "path": "https://docs.medusajs.com/user-guide/en/settings/locations-and-shipping"
+    "path": "https://docs.medusajs.com/user-guide/settings/locations-and-shipping"
   },
   {
     "title": "Inventory Kits",
     "path": "https://docs.medusajs.com/resources/commerce-modules/inventory/inventory-kit"
+  },
+  {
+    "title": "จัดการสถานที่จัดเก็บสินค้า",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/locations-and-shipping/locations"
+  },
+  {
+    "title": "ภาพรวมสถานที่และระบบการจัดส่ง",
+    "path": "https://docs.medusajs.com/user-guide/th/settings/locations-and-shipping"
   },
   {
     "title": "Product Variant Inventory",
