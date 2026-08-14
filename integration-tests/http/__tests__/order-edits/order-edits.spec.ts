@@ -1569,6 +1569,144 @@ medusaIntegrationTestRunner({
         expect(nonCollectionItem.adjustments).toEqual([])
       })
 
+      const createOrderEditWithMinPurchasePromotion = async (
+        minItemSubtotal: string
+      ) => {
+        const promotion = (
+          await api.post(
+            "/admin/promotions",
+            {
+              code: `MIN_PURCHASE_${minItemSubtotal}`,
+              type: PromotionType.STANDARD,
+              status: PromotionStatus.ACTIVE,
+              application_method: {
+                type: "percentage",
+                target_type: "order",
+                allocation: "across",
+                value: 10,
+                currency_code: "usd",
+                target_rules: [],
+              },
+              rules: [
+                {
+                  attribute: "item_subtotal",
+                  operator: RuleOperator.GTE,
+                  values: minItemSubtotal,
+                },
+              ],
+            },
+            adminHeaders
+          )
+        ).data.promotion
+
+        const orderForPromotion = await orderModule.createOrders({
+          email: "min.purchase@admin.com",
+          region_id: region.id,
+          sales_channel_id: salesChannel.id,
+          items: [
+            {
+              variant_id: buyRuleProduct.variants[0].id,
+              title: "original item",
+              quantity: 1,
+              unit_price: 10,
+            },
+          ],
+          shipping_address: {
+            first_name: "Test",
+            last_name: "Test",
+            address_1: "Test",
+            city: "Test",
+            country_code: "US",
+            postal_code: "12345",
+          },
+          billing_address: {
+            first_name: "Test",
+            last_name: "Test",
+            address_1: "Test",
+            city: "Test",
+            country_code: "US",
+            postal_code: "12345",
+          },
+          currency_code: "usd",
+        })
+
+        await remoteLink.create({
+          [Modules.ORDER]: { order_id: orderForPromotion.id },
+          [Modules.PROMOTION]: { promotion_id: promotion.id },
+        })
+
+        const orderEdit = await api.post(
+          "/admin/order-edits",
+          {
+            order_id: orderForPromotion.id,
+            description: "Test",
+          },
+          adminHeaders
+        )
+
+        await api.post(
+          `/admin/order-changes/${orderEdit.data.order_change.id}`,
+          {
+            carry_over_promotions: true,
+          },
+          adminHeaders
+        )
+
+        // Adds a $12 item on top of the $10 item the order was created with,
+        // taking the previewed item subtotal to $22.
+        return (
+          await api.post(
+            `/admin/order-edits/${orderForPromotion.id}/items`,
+            {
+              items: [
+                {
+                  variant_id: productExtra.variants[0].id,
+                  quantity: 1,
+                },
+              ],
+            },
+            adminHeaders
+          )
+        ).data.order_preview
+      }
+
+      it("should apply a minimum purchase promotion when the previewed subtotal reaches the minimum", async () => {
+        // The persisted order is only $10, so the rule has to be evaluated
+        // against the previewed subtotal ($22) for the promotion to apply.
+        const preview = await createOrderEditWithMinPurchasePromotion("20")
+
+        expect(preview.item_subtotal).toEqual(22)
+
+        const originalItem = preview.items.find(
+          (item) => item.variant_id === buyRuleProduct.variants[0].id
+        )
+        const addedItem = preview.items.find(
+          (item) => item.variant_id === productExtra.variants[0].id
+        )
+
+        // 10% of $22 allocated across the two items
+        expect(originalItem.adjustments).toEqual([
+          expect.objectContaining({
+            amount: 1,
+          }),
+        ])
+        expect(addedItem.adjustments).toEqual([
+          expect.objectContaining({
+            amount: 1.2,
+          }),
+        ])
+      })
+
+      it("should not apply a minimum purchase promotion when the previewed subtotal stays below the minimum", async () => {
+        const preview = await createOrderEditWithMinPurchasePromotion("100")
+
+        expect(preview.item_subtotal).toEqual(22)
+
+        for (const item of preview.items) {
+          expect(item.adjustments).toEqual([])
+        }
+      })
+
       it("should update adjustments when updating an item", async () => {
         let result = await api.post(
           "/admin/order-edits",

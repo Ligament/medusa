@@ -191,15 +191,20 @@ export const prepareOrderComputeActionContextStep = createStep(
       ? { country_code: shippingAddress.country_code }
       : undefined
 
-    // The previewed order doesn't carry decorated totals, so the item
-    // subtotal is derived from the items to support minimum purchase
-    // requirement rules (e.g. `item_subtotal gte 100`).
-    const itemSubtotal = computedItems
-      .reduce(
-        (acc, item) => MathBN.add(acc, (item as any).subtotal ?? 0),
-        MathBN.convert(0)
-      )
-      .toNumber()
+    // `previewOrderChange` decorates the preview with cart-like totals, so
+    // `item_subtotal` (items only, excluding shipping) is already computed the
+    // same way carts compute it. It backs minimum purchase requirement rules
+    // (e.g. `item_subtotal gte 100`), so it has to reflect the previewed items
+    // rather than the persisted order. The reduce is only a fallback for
+    // callers handing us an order that never went through totals decoration.
+    const itemSubtotal = MathBN.convert(
+      (previewedOrder as any).item_subtotal ??
+        (order as any).item_subtotal ??
+        computedItems.reduce(
+          (acc, item) => MathBN.add(acc, (item as any).subtotal ?? 0),
+          MathBN.convert(0)
+        )
+    ).toNumber()
 
     return new StepResponse({
       currency_code: previewedOrder.currency_code ?? order.currency_code,

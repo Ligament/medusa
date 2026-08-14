@@ -448,6 +448,9 @@ export const createOrderWorkflow = createWorkflow(
         "shipping_methods.tax_lines.*",
         "shipping_methods.adjustments.*",
         "total",
+        // `refreshDraftOrderAdjustmentsWorkflow` evaluates promotion rules
+        // against this order, so minimum purchase rules need the item subtotal.
+        "item_subtotal",
         "id",
       ],
       filters: {
