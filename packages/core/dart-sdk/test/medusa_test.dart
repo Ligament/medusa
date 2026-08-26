@@ -182,5 +182,50 @@ void main() {
       expect(result.location, "https://oauth");
       expect(result.token, isNull);
     });
+
+    test("listProviders GETs the actor's providers route", () async {
+      final config = Config(baseUrl: "https://api.test");
+      late http.Request captured;
+      final client = MedusaClient(
+        config,
+        httpClient: MockClient((req) async {
+          captured = req;
+          return _json({
+            "providers": [
+              {"id": "emailpass", "flow": "credentials"},
+              {"id": "okta", "flow": "redirect"},
+            ]
+          });
+        }),
+      );
+
+      final res = await Auth(client, config).listProviders("user");
+
+      expect(captured.method, "GET");
+      expect(captured.url.path, "/auth/user/providers");
+      expect((res["providers"] as List).length, 2);
+    });
+
+    test("createUser POSTs to the provider's user route with given headers", () async {
+      final config = Config(baseUrl: "https://api.test");
+      late http.Request captured;
+      final client = MedusaClient(
+        config,
+        httpClient: MockClient((req) async {
+          captured = req;
+          return _json({
+            "user": {"id": "user_1", "email": "a@b.c"}
+          });
+        }),
+      );
+
+      final res = await Auth(client, config)
+          .createUser("okta", headers: {"authorization": "Bearer tok_1"});
+
+      expect(captured.method, "POST");
+      expect(captured.url.path, "/auth/okta/user");
+      expect(captured.headers["authorization"], "Bearer tok_1");
+      expect((res["user"] as Map)["id"], "user_1");
+    });
   });
 }

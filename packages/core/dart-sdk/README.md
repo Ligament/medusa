@@ -10,7 +10,7 @@ it runs in Flutter apps, server-side Dart, and CLIs.
 dependencies:
   medusajs_dart_sdk:
     path: packages/core/dart-sdk
-  # or, once published: medusajs_dart_sdk: ^2.17.0
+  # or, once published: medusajs_dart_sdk: ^2.19.0
 ```
 
 ## Quick start

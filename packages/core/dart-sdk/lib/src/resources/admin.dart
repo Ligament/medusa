@@ -18,6 +18,7 @@ class Admin {
         fulfillmentSet = AdminFulfillmentSetResource(client),
         inventoryItem = AdminInventoryItemResource(client),
         invite = AdminInviteResource(client),
+        layouts = AdminLayoutsResource(client),
         locale = AdminLocaleResource(client),
         notification = AdminNotificationResource(client),
         order = AdminOrderResource(client),
@@ -35,6 +36,7 @@ class Admin {
         productType = AdminProductTypeResource(client),
         productVariant = AdminProductVariantResource(client),
         promotion = AdminPromotionResource(client),
+        propertyLabel = AdminPropertyLabelResource(client),
         rbacPolicy = AdminRbacPolicyResource(client),
         rbacRole = AdminRbacRoleResource(client),
         refundReason = AdminRefundReasonResource(client),
@@ -43,6 +45,7 @@ class Admin {
         return_ = AdminReturnResource(client),
         returnReason = AdminReturnReasonResource(client),
         salesChannel = AdminSalesChannelResource(client),
+        search = AdminSearchResource(client),
         shippingOption = AdminShippingOptionResource(client),
         shippingOptionType = AdminShippingOptionTypeResource(client),
         shippingProfile = AdminShippingProfileResource(client),
@@ -69,6 +72,7 @@ class Admin {
   final AdminFulfillmentSetResource fulfillmentSet;
   final AdminInventoryItemResource inventoryItem;
   final AdminInviteResource invite;
+  final AdminLayoutsResource layouts;
   final AdminLocaleResource locale;
   final AdminNotificationResource notification;
   final AdminOrderResource order;
@@ -86,6 +90,7 @@ class Admin {
   final AdminProductTypeResource productType;
   final AdminProductVariantResource productVariant;
   final AdminPromotionResource promotion;
+  final AdminPropertyLabelResource propertyLabel;
   final AdminRbacPolicyResource rbacPolicy;
   final AdminRbacRoleResource rbacRole;
   final AdminRefundReasonResource refundReason;
@@ -94,6 +99,7 @@ class Admin {
   final AdminReturnResource return_;
   final AdminReturnReasonResource returnReason;
   final AdminSalesChannelResource salesChannel;
+  final AdminSearchResource search;
   final AdminShippingOptionResource shippingOption;
   final AdminShippingOptionTypeResource shippingOptionType;
   final AdminShippingProfileResource shippingProfile;
@@ -698,6 +704,11 @@ class AdminInventoryItemResource {
     return AdminInventoryItemResponse.fromJson(res);
   }
 
+  Future<AdminExportInventoryItemResponse> export(Map<String, dynamic> body, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/inventory-items/export", init: FetchArgs(method: "POST", body: body, query: query, headers: headers));
+    return AdminExportInventoryItemResponse.fromJson(res);
+  }
+
   Future<AdminInventoryItemListResponse> list({QueryParams? query, ClientHeaders? headers}) async {
     final res = await _client.fetch("/admin/inventory-items", init: FetchArgs(query: query, headers: headers));
     return AdminInventoryItemListResponse.fromJson(res);
@@ -778,6 +789,28 @@ class AdminInviteResource {
 
 }
 
+class AdminLayoutsResource {
+  AdminLayoutsResource(this._client);
+  final MedusaClient _client;
+
+  Future<dynamic> retrieveConfiguration(String zone, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/layouts/$zone/configuration", init: FetchArgs(query: query, headers: headers));
+  }
+
+  Future<dynamic> setConfiguration(String zone, AdminSetLayoutConfiguration body, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/layouts/$zone/configuration", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
+  }
+
+  Future<dynamic> listConfigurations({QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/layouts/configurations", init: FetchArgs(query: query, headers: headers));
+  }
+
+  Future<dynamic> deleteConfiguration(String zone, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/layouts/$zone/configuration", init: FetchArgs(method: "DELETE", query: query, headers: headers));
+  }
+
+}
+
 class AdminLocaleResource {
   AdminLocaleResource(this._client);
   final MedusaClient _client;
@@ -854,6 +887,11 @@ class AdminOrderResource {
     return AdminOrderResponse.fromJson(res);
   }
 
+  Future<AdminOrderResponse> transferToGuest(String id, AdminTransferOrderToGuest body, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/orders/$id/transfer/guest", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
+    return AdminOrderResponse.fromJson(res);
+  }
+
   Future<AdminOrderResponse> cancelTransfer(String id, {QueryParams? query, ClientHeaders? headers}) async {
     final res = await _client.fetch("/admin/orders/$id/transfer/cancel", init: FetchArgs(method: "POST", query: query, headers: headers));
     return AdminOrderResponse.fromJson(res);
@@ -898,6 +936,11 @@ class AdminOrderResource {
     return AdminOrderResponse.fromJson(res);
   }
 
+  Future<AdminAuthorizeOrderPaymentSessionResponse> authorizePaymentSession(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/orders/$id/payment-sessions/authorize", init: FetchArgs(method: "POST", query: query, headers: headers));
+    return AdminAuthorizeOrderPaymentSessionResponse.fromJson(res);
+  }
+
   Future<AdminOrderChangeResponse> updateOrderChange(String id, AdminUpdateOrderChange body, {QueryParams? query, ClientHeaders? headers}) async {
     final res = await _client.fetch("/admin/order-changes/$id", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
     return AdminOrderChangeResponse.fromJson(res);
@@ -919,8 +962,8 @@ class AdminOrderEditResource {
     return AdminOrderEditResponse.fromJson(res);
   }
 
-  Future<AdminOrderEditPreviewResponse> request(String id, {QueryParams? query, ClientHeaders? headers}) async {
-    final res = await _client.fetch("/admin/order-edits/$id/request", init: FetchArgs(method: "POST", query: query, headers: headers));
+  Future<AdminOrderEditPreviewResponse> request(String id, AdminRequestOrderEdit body, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/order-edits/$id/request", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
     return AdminOrderEditPreviewResponse.fromJson(res);
   }
 
@@ -1189,29 +1232,9 @@ class AdminProductResource {
     return AdminProductVariantInventoryBatchResponse.fromJson(res);
   }
 
-  Future<AdminProductResponse> createOption(String productId, AdminCreateProductOption body, {QueryParams? query, ClientHeaders? headers}) async {
-    final res = await _client.fetch("/admin/products/$productId/options", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
-    return AdminProductResponse.fromJson(res);
-  }
-
-  Future<AdminProductResponse> updateOption(String productId, String id, AdminUpdateProductOption body, {QueryParams? query, ClientHeaders? headers}) async {
-    final res = await _client.fetch("/admin/products/$productId/options/$id", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
-    return AdminProductResponse.fromJson(res);
-  }
-
   Future<AdminProductOptionListResponse> listOptions(String productId, {QueryParams? query, ClientHeaders? headers}) async {
     final res = await _client.fetch("/admin/products/$productId/options", init: FetchArgs(query: query, headers: headers));
     return AdminProductOptionListResponse.fromJson(res);
-  }
-
-  Future<AdminProductOptionResponse> retrieveOption(String productId, String id, {QueryParams? query, ClientHeaders? headers}) async {
-    final res = await _client.fetch("/admin/products/$productId/options/$id", init: FetchArgs(query: query, headers: headers));
-    return AdminProductOptionResponse.fromJson(res);
-  }
-
-  Future<AdminProductOptionDeleteResponse> deleteOption(String productId, String id, {QueryParams? query, ClientHeaders? headers}) async {
-    final res = await _client.fetch("/admin/products/$productId/options/$id", init: FetchArgs(method: "DELETE", query: query, headers: headers));
-    return AdminProductOptionDeleteResponse.fromJson(res);
   }
 
   Future<AdminBatchImageVariantResponse> batchImageVariants(String productId, String imageId, AdminBatchImageVariantRequest body, {QueryParams? query, ClientHeaders? headers}) async {
@@ -1224,8 +1247,8 @@ class AdminProductResource {
     return AdminBatchVariantImagesResponse.fromJson(res);
   }
 
-  Future<AdminProductResponse> linkOptions(String productId, Map<String, dynamic> body, {QueryParams? query, ClientHeaders? headers}) async {
-    final res = await _client.fetch("/admin/products/$productId/options/batch", init: FetchArgs(method: "POST", body: body, query: query, headers: headers));
+  Future<AdminProductResponse> linkOptions(String productId, AdminLinkProductOptions body, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/products/$productId/options/batch", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
     return AdminProductResponse.fromJson(res);
   }
 
@@ -1317,8 +1340,9 @@ class AdminProductOptionResource {
     return AdminProductOptionResponse.fromJson(res);
   }
 
-  Future<dynamic> list({QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/product-options", init: FetchArgs(query: query, headers: headers));
+  Future<AdminProductOptionListResponse> list({QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/product-options", init: FetchArgs(query: query, headers: headers));
+    return AdminProductOptionListResponse.fromJson(res);
   }
 
   Future<AdminProductOptionResponse> retrieve(String id, {QueryParams? query, ClientHeaders? headers}) async {
@@ -1331,20 +1355,24 @@ class AdminProductOptionResource {
     return AdminProductOptionDeleteResponse.fromJson(res);
   }
 
-  Future<dynamic> listValues(String optionId, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/product-options/$optionId/values", init: FetchArgs(query: query, headers: headers));
+  Future<AdminProductOptionValueListResponse> listValues(String optionId, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/product-options/$optionId/values", init: FetchArgs(query: query, headers: headers));
+    return AdminProductOptionValueListResponse.fromJson(res);
   }
 
-  Future<dynamic> retrieveValue(String optionId, String valueId, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/product-options/$optionId/values/$valueId", init: FetchArgs(query: query, headers: headers));
+  Future<AdminProductOptionValueResponse> retrieveValue(String optionId, String valueId, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/product-options/$optionId/values/$valueId", init: FetchArgs(query: query, headers: headers));
+    return AdminProductOptionValueResponse.fromJson(res);
   }
 
-  Future<dynamic> updateValue(String optionId, String valueId, Map<String, dynamic> body, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/product-options/$optionId/values/$valueId", init: FetchArgs(method: "POST", body: body, query: query, headers: headers));
+  Future<AdminProductOptionValueResponse> updateValue(String optionId, String valueId, AdminUpdateProductOptionValue body, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/product-options/$optionId/values/$valueId", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
+    return AdminProductOptionValueResponse.fromJson(res);
   }
 
-  Future<dynamic> deleteValue(String optionId, String valueId, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/product-options/$optionId/values/$valueId", init: FetchArgs(method: "DELETE", query: query, headers: headers));
+  Future<AdminProductOptionValueDeleteResponse> deleteValue(String optionId, String valueId, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/product-options/$optionId/values/$valueId", init: FetchArgs(method: "DELETE", query: query, headers: headers));
+    return AdminProductOptionValueDeleteResponse.fromJson(res);
   }
 
 }
@@ -1479,6 +1507,36 @@ class AdminPromotionResource {
   Future<AdminRuleValueOptionsListResponse> listRuleValues(String ruleType, String ruleValue, {QueryParams? query, ClientHeaders? headers}) async {
     final res = await _client.fetch("/admin/promotions/rule-value-options/$ruleType/$ruleValue", init: FetchArgs(query: query, headers: headers));
     return AdminRuleValueOptionsListResponse.fromJson(res);
+  }
+
+}
+
+class AdminPropertyLabelResource {
+  AdminPropertyLabelResource(this._client);
+  final MedusaClient _client;
+
+  Future<dynamic> list({QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/property-labels", init: FetchArgs(query: query, headers: headers));
+  }
+
+  Future<dynamic> create(AdminCreatePropertyLabel body, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/property-labels", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
+  }
+
+  Future<dynamic> retrieve(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/property-labels/$id", init: FetchArgs(query: query, headers: headers));
+  }
+
+  Future<dynamic> update(String id, Map<String, dynamic> body, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/property-labels/$id", init: FetchArgs(method: "POST", body: body, query: query, headers: headers));
+  }
+
+  Future<dynamic> delete(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/property-labels/$id", init: FetchArgs(method: "DELETE", query: query, headers: headers));
+  }
+
+  Future<dynamic> batch(AdminBatchPropertyLabels body, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/property-labels/batch", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
   }
 
 }
@@ -1856,6 +1914,25 @@ class AdminSalesChannelResource {
 
 }
 
+class AdminSearchResource {
+  AdminSearchResource(this._client);
+  final MedusaClient _client;
+
+  Future<AdminSearchResponse> list({QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/search", init: FetchArgs(query: query, headers: headers));
+    return AdminSearchResponse.fromJson(res);
+  }
+
+  Future<dynamic> listIndexes({QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/search-indexes", init: FetchArgs(query: query, headers: headers));
+  }
+
+  Future<dynamic> reindex(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/search-indexes/$id/reindex", init: FetchArgs(method: "POST", query: query, headers: headers));
+  }
+
+}
+
 class AdminShippingOptionResource {
   AdminShippingOptionResource(this._client);
   final MedusaClient _client;
@@ -2175,6 +2252,14 @@ class AdminUserResource {
     return AdminUserResponse.fromJson(res);
   }
 
+  Future<dynamic> listAuthProviders(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/users/$id/auth-providers", init: FetchArgs(query: query, headers: headers));
+  }
+
+  Future<dynamic> generateResetPasswordToken(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/users/$id/reset-password", init: FetchArgs(method: "POST", query: query, headers: headers));
+  }
+
   Future<dynamic> listRoles(String id, {QueryParams? query, ClientHeaders? headers}) async {
     return _client.fetch("/admin/users/$id/roles", init: FetchArgs(query: query, headers: headers));
   }
@@ -2206,6 +2291,10 @@ class AdminUserResource {
 class AdminViewsResource {
   AdminViewsResource(this._client);
   final MedusaClient _client;
+
+  Future<dynamic> listEntities({QueryParams? query, ClientHeaders? headers}) async {
+    return _client.fetch("/admin/views/entities", init: FetchArgs(query: query, headers: headers));
+  }
 
   Future<dynamic> columns(String entity, {QueryParams? query, ClientHeaders? headers}) async {
     return _client.fetch("/admin/views/$entity/columns", init: FetchArgs(query: query, headers: headers));
@@ -2915,6 +3004,39 @@ class AdminProductOptionListResponse {
   };
 }
 
+/// Synthesized from the OpenAPI response schema for `AdminProductOptionValueListResponse`.
+class AdminProductOptionValueListResponse {
+  AdminProductOptionValueListResponse({
+    this.limit,
+    this.offset,
+    this.count,
+    this.estimateCount,
+    this.productOptionValues,
+  });
+
+  final num? limit;
+  final num? offset;
+  final num? count;
+  final num? estimateCount;
+  final List<AdminProductOptionValue>? productOptionValues;
+
+  factory AdminProductOptionValueListResponse.fromJson(Map<String, dynamic> json) => AdminProductOptionValueListResponse(
+    limit: json["limit"] as num?,
+    offset: json["offset"] as num?,
+    count: json["count"] as num?,
+    estimateCount: json["estimate_count"] as num?,
+    productOptionValues: (json["product_option_values"] as List?)?.map((e) => e == null ? null : AdminProductOptionValue.fromJson(e as Map<String, dynamic>)).toList().cast<AdminProductOptionValue>(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (limit != null) "limit": limit!,
+    if (offset != null) "offset": offset!,
+    if (count != null) "count": count!,
+    if (estimateCount != null) "estimate_count": estimateCount!,
+    if (productOptionValues != null) "product_option_values": productOptionValues!.map((e) => e.toJson()).toList(),
+  };
+}
+
 /// Synthesized from the OpenAPI response schema for `AdminPromotionListResponse`.
 class AdminPromotionListResponse {
   AdminPromotionListResponse({
@@ -3199,6 +3321,23 @@ class AdminSalesChannelListResponse {
     if (offset != null) "offset": offset!,
     if (count != null) "count": count!,
     if (salesChannels != null) "sales_channels": salesChannels!.map((e) => e.toJson()).toList(),
+  };
+}
+
+/// Synthesized from the OpenAPI response schema for `AdminSearchResponse`.
+class AdminSearchResponse {
+  AdminSearchResponse({
+    this.results,
+  });
+
+  final List<Map<String, dynamic>>? results;
+
+  factory AdminSearchResponse.fromJson(Map<String, dynamic> json) => AdminSearchResponse(
+    results: (json["results"] as List?)?.map((e) => e as Map<String, dynamic>?).toList().cast<Map<String, dynamic>>(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (results != null) "results": results!.map((e) => e).toList(),
   };
 }
 

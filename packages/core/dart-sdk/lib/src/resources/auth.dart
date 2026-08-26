@@ -227,6 +227,29 @@ class Auth {
         init: FetchArgs(method: "POST", body: body, headers: {"authorization": "Bearer $token"}));
   }
 
+  /// Lists the authentication providers available for an [actor] type.
+  ///
+  /// This is a public, pre-authentication route. Use it to render the available
+  /// login options (email/password form, "Continue with ..." buttons) based on
+  /// each provider's `flow`.
+  Future<Map<String, dynamic>> listProviders(String actor, {ClientHeaders? headers}) async {
+    final res = await _client.fetch("/auth/$actor/providers",
+        init: FetchArgs(headers: headers));
+    return res as Map<String, dynamic>;
+  }
+
+  /// Creates or links the `user` (admin) actor for a redirect-based [provider]
+  /// after a successful callback.
+  ///
+  /// The token returned by [callback] is actorless until the user is
+  /// provisioned. Pass it in the `authorization` header here, then call
+  /// [refresh] to obtain a token bound to the newly linked user.
+  Future<Map<String, dynamic>> createUser(String provider, {ClientHeaders? headers}) async {
+    final res = await _client.fetch("/auth/$provider/user",
+        init: FetchArgs(method: "POST", headers: headers));
+    return res as Map<String, dynamic>;
+  }
+
   Future<void> _setToken(String token) async {
     if (_config.auth?.type == AuthType.session) {
       await _client.fetch("/auth/session",

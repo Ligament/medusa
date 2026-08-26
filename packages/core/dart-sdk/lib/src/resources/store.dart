@@ -82,12 +82,14 @@ class StoreProductOptionResource {
   StoreProductOptionResource(this._client);
   final MedusaClient _client;
 
-  Future<dynamic> list({QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/store/product-options", init: FetchArgs(query: query, headers: headers));
+  Future<StoreProductOptionListResponse> list({QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/store/product-options", init: FetchArgs(query: query, headers: headers));
+    return StoreProductOptionListResponse.fromJson(res);
   }
 
-  Future<dynamic> retrieve(String id, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/store/product-options/$id", init: FetchArgs(query: query, headers: headers));
+  Future<StoreProductOptionResponse> retrieve(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/store/product-options/$id", init: FetchArgs(query: query, headers: headers));
+    return StoreProductOptionResponse.fromJson(res);
   }
 
 }
@@ -367,6 +369,39 @@ class StoreCollectionListResponse {
     if (offset != null) "offset": offset!,
     if (count != null) "count": count!,
     if (collections != null) "collections": collections!.map((e) => e.toJson()).toList(),
+  };
+}
+
+/// Synthesized from the OpenAPI response schema for `StoreProductOptionListResponse`.
+class StoreProductOptionListResponse {
+  StoreProductOptionListResponse({
+    this.limit,
+    this.offset,
+    this.count,
+    this.estimateCount,
+    this.productOptions,
+  });
+
+  final num? limit;
+  final num? offset;
+  final num? count;
+  final num? estimateCount;
+  final List<StoreProductOption>? productOptions;
+
+  factory StoreProductOptionListResponse.fromJson(Map<String, dynamic> json) => StoreProductOptionListResponse(
+    limit: json["limit"] as num?,
+    offset: json["offset"] as num?,
+    count: json["count"] as num?,
+    estimateCount: json["estimate_count"] as num?,
+    productOptions: (json["product_options"] as List?)?.map((e) => e == null ? null : StoreProductOption.fromJson(e as Map<String, dynamic>)).toList().cast<StoreProductOption>(),
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (limit != null) "limit": limit!,
+    if (offset != null) "offset": offset!,
+    if (count != null) "count": count!,
+    if (estimateCount != null) "estimate_count": estimateCount!,
+    if (productOptions != null) "product_options": productOptions!.map((e) => e.toJson()).toList(),
   };
 }
 

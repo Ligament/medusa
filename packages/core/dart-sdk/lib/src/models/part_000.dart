@@ -408,6 +408,46 @@ class AdminApplicationMethod {
   };
 }
 
+/// The details for authorizing a payment session for an order.
+class AdminAuthorizeOrderPaymentSession {
+  AdminAuthorizeOrderPaymentSession({
+    this.paymentSessionId,
+  });
+
+  /// The payment session's ID.
+  final String? paymentSessionId;
+
+  factory AdminAuthorizeOrderPaymentSession.fromJson(Map<String, dynamic> json) => AdminAuthorizeOrderPaymentSession(
+    paymentSessionId: json["payment_session_id"] as String?,
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (paymentSessionId != null) "payment_session_id": paymentSessionId!,
+  };
+}
+
+/// The details of the response after authorizing a payment session for an order.
+class AdminAuthorizeOrderPaymentSessionResponse {
+  AdminAuthorizeOrderPaymentSessionResponse({
+    this.order,
+    this.isAuthorized,
+  });
+
+  final AdminOrder? order;
+  /// Whether the payment session was successfully authorized.
+  final bool? isAuthorized;
+
+  factory AdminAuthorizeOrderPaymentSessionResponse.fromJson(Map<String, dynamic> json) => AdminAuthorizeOrderPaymentSessionResponse(
+    order: json["order"] == null ? null : AdminOrder.fromJson(json["order"] as Map<String, dynamic>),
+    isAuthorized: json["is_authorized"] as bool?,
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (order != null) "order": order!.toJson(),
+    if (isAuthorized != null) "is_authorized": isAuthorized!,
+  };
+}
+
 /// The inventory level's details.
 class AdminBatchCreateInventoryItemLocationLevels {
   AdminBatchCreateInventoryItemLocationLevels({
@@ -994,7 +1034,6 @@ class AdminBatchUpdateProduct {
     this.collectionId,
     this.categories,
     this.tags,
-    this.options,
     this.variants,
     this.salesChannels,
     this.weight,
@@ -1009,6 +1048,7 @@ class AdminBatchUpdateProduct {
     this.externalId,
     this.id,
     this.shippingProfileId,
+    this.optionIds,
   });
 
   /// The product's title.
@@ -1037,8 +1077,6 @@ class AdminBatchUpdateProduct {
   final List<Map<String, dynamic>>? categories;
   /// The product's tags.
   final List<Map<String, dynamic>>? tags;
-  /// The product's options.
-  final List<AdminUpdateProductOption>? options;
   /// The product's variants. You can add new variants or update existing ones, passing their IDs in the object.
   final List<dynamic>? variants;
   /// The sales channels that the product is available in.
@@ -1067,6 +1105,8 @@ class AdminBatchUpdateProduct {
   final String? id;
   /// The ID of the product's shipping profile.
   final String? shippingProfileId;
+  /// The ID of the product's options.
+  final List<String>? optionIds;
 
   factory AdminBatchUpdateProduct.fromJson(Map<String, dynamic> json) => AdminBatchUpdateProduct(
     title: json["title"] as String?,
@@ -1082,7 +1122,6 @@ class AdminBatchUpdateProduct {
     collectionId: json["collection_id"] as String?,
     categories: (json["categories"] as List?)?.map((e) => e as Map<String, dynamic>?).toList().cast<Map<String, dynamic>>(),
     tags: (json["tags"] as List?)?.map((e) => e as Map<String, dynamic>?).toList().cast<Map<String, dynamic>>(),
-    options: (json["options"] as List?)?.map((e) => e == null ? null : AdminUpdateProductOption.fromJson(e as Map<String, dynamic>)).toList().cast<AdminUpdateProductOption>(),
     variants: (json["variants"] as List?)?.map((e) => e).toList().cast<dynamic>(),
     salesChannels: (json["sales_channels"] as List?)?.map((e) => e as Map<String, dynamic>?).toList().cast<Map<String, dynamic>>(),
     weight: json["weight"] as num?,
@@ -1097,6 +1136,7 @@ class AdminBatchUpdateProduct {
     externalId: json["external_id"] as String?,
     id: json["id"] as String?,
     shippingProfileId: json["shipping_profile_id"] as String?,
+    optionIds: (json["option_ids"] as List?)?.map((e) => e as String?).toList().cast<String>(),
   );
 
   Map<String, dynamic> toJson() => {
@@ -1113,7 +1153,6 @@ class AdminBatchUpdateProduct {
     if (collectionId != null) "collection_id": collectionId!,
     if (categories != null) "categories": categories!.map((e) => e).toList(),
     if (tags != null) "tags": tags!.map((e) => e).toList(),
-    if (options != null) "options": options!.map((e) => e.toJson()).toList(),
     if (variants != null) "variants": variants!.map((e) => e).toList(),
     if (salesChannels != null) "sales_channels": salesChannels!.map((e) => e).toList(),
     if (weight != null) "weight": weight!,
@@ -1128,6 +1167,7 @@ class AdminBatchUpdateProduct {
     if (externalId != null) "external_id": externalId!,
     if (id != null) "id": id!,
     if (shippingProfileId != null) "shipping_profile_id": shippingProfileId!,
+    if (optionIds != null) "option_ids": optionIds!.map((e) => e).toList(),
   };
 }
 
@@ -1998,6 +2038,7 @@ class AdminColumn {
     this.source,
     this.customLabel,
     this.labelId,
+    this.metadata,
   });
 
   /// The column's ID.
@@ -2038,6 +2079,8 @@ class AdminColumn {
   final bool? customLabel;
   /// The ID of the column's label, if it has a custom label.
   final String? labelId;
+  /// The column's metadata.
+  final Map<String, dynamic>? metadata;
 
   factory AdminColumn.fromJson(Map<String, dynamic> json) => AdminColumn(
     id: json["id"] as String?,
@@ -2059,6 +2102,7 @@ class AdminColumn {
     source: json["source"] as Map<String, dynamic>?,
     customLabel: json["custom_label"] as bool?,
     labelId: json["label_id"] as String?,
+    metadata: json["metadata"] as Map<String, dynamic>?,
   );
 
   Map<String, dynamic> toJson() => {
@@ -2081,41 +2125,6 @@ class AdminColumn {
     if (source != null) "source": source!,
     if (customLabel != null) "custom_label": customLabel!,
     if (labelId != null) "label_id": labelId!,
-  };
-}
-
-/// The confirmation's details.
-class AdminConfirmReceiveReturn {
-  AdminConfirmReceiveReturn({
-    this.noNotification,
-  });
-
-  /// Whether to send the customer a notification about the confirmation.
-  final bool? noNotification;
-
-  factory AdminConfirmReceiveReturn.fromJson(Map<String, dynamic> json) => AdminConfirmReceiveReturn(
-    noNotification: json["no_notification"] as bool?,
-  );
-
-  Map<String, dynamic> toJson() => {
-    if (noNotification != null) "no_notification": noNotification!,
-  };
-}
-
-/// The confirmation's details.
-class AdminConfirmReturnRequest {
-  AdminConfirmReturnRequest({
-    this.noNotification,
-  });
-
-  /// Whether to send the customer a notification about the confirmation.
-  final bool? noNotification;
-
-  factory AdminConfirmReturnRequest.fromJson(Map<String, dynamic> json) => AdminConfirmReturnRequest(
-    noNotification: json["no_notification"] as bool?,
-  );
-
-  Map<String, dynamic> toJson() => {
-    if (noNotification != null) "no_notification": noNotification!,
+    if (metadata != null) "metadata": metadata!,
   };
 }
