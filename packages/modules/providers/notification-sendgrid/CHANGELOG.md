@@ -1,5 +1,12 @@
 # @medusajs/notification-sendgrid
 
+## 2.20.0
+
+### Patch Changes
+
+- Updated dependencies [[`847612908fdd1c11a4df09ccc2e8ab44d338bb04`](https://github.com/medusajs/medusa/commit/847612908fdd1c11a4df09ccc2e8ab44d338bb04), [`785fd2b8a978201638a4d8d5ae9eea483958c0fb`](https://github.com/medusajs/medusa/commit/785fd2b8a978201638a4d8d5ae9eea483958c0fb)]:
+  - @medusajs/framework@2.20.0
+
 ## 2.19.0
 
 ### Patch Changes

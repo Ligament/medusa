@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.20.0
+
+### Patch Changes
+
+- [#16361](https://github.com/medusajs/medusa/pull/16361) [`51c48dcb472c3b232b88337030945b2b651e90f8`](https://github.com/medusajs/medusa/commit/51c48dcb472c3b232b88337030945b2b651e90f8) Thanks [@sradevski](https://github.com/sradevski)! - Add a postgres search provider
+
+- Updated dependencies [[`4857d15bdcaf5a0648e7adc5b0b40312e23b5c02`](https://github.com/medusajs/medusa/commit/4857d15bdcaf5a0648e7adc5b0b40312e23b5c02), [`884e8a810d75be52a255d58bfcf01581e738d7d8`](https://github.com/medusajs/medusa/commit/884e8a810d75be52a255d58bfcf01581e738d7d8), [`4857d15bdcaf5a0648e7adc5b0b40312e23b5c02`](https://github.com/medusajs/medusa/commit/4857d15bdcaf5a0648e7adc5b0b40312e23b5c02), [`51c48dcb472c3b232b88337030945b2b651e90f8`](https://github.com/medusajs/medusa/commit/51c48dcb472c3b232b88337030945b2b651e90f8), [`4528357cfe3c3bcf76a20b2ac2fe3637fb649a9d`](https://github.com/medusajs/medusa/commit/4528357cfe3c3bcf76a20b2ac2fe3637fb649a9d), [`c26c1551ac8700061267ac6b8e0ac380e5404d3c`](https://github.com/medusajs/medusa/commit/c26c1551ac8700061267ac6b8e0ac380e5404d3c), [`847612908fdd1c11a4df09ccc2e8ab44d338bb04`](https://github.com/medusajs/medusa/commit/847612908fdd1c11a4df09ccc2e8ab44d338bb04), [`90841150c76acbd31d8e94bd2edd585ccdff1db7`](https://github.com/medusajs/medusa/commit/90841150c76acbd31d8e94bd2edd585ccdff1db7), [`785fd2b8a978201638a4d8d5ae9eea483958c0fb`](https://github.com/medusajs/medusa/commit/785fd2b8a978201638a4d8d5ae9eea483958c0fb), [`693310310610cf439fabb73230187028f2755696`](https://github.com/medusajs/medusa/commit/693310310610cf439fabb73230187028f2755696), [`c1e5a8f63988698df7f92b8f1e75f63ab8fdee64`](https://github.com/medusajs/medusa/commit/c1e5a8f63988698df7f92b8f1e75f63ab8fdee64), [`f3b3bd838ed53b6b2e1adead27d6b1006ea6e6e4`](https://github.com/medusajs/medusa/commit/f3b3bd838ed53b6b2e1adead27d6b1006ea6e6e4), [`2a5dd813a7e1d5094cb81f688e2e9e7cc8fd3543`](https://github.com/medusajs/medusa/commit/2a5dd813a7e1d5094cb81f688e2e9e7cc8fd3543), [`7479b07071e51f4fc6a7ddafe2c778e85c6eb61d`](https://github.com/medusajs/medusa/commit/7479b07071e51f4fc6a7ddafe2c778e85c6eb61d), [`c5d55adb2375d19b8ae3be750e9aca52cf22e964`](https://github.com/medusajs/medusa/commit/c5d55adb2375d19b8ae3be750e9aca52cf22e964)]:
+  - @medusajs/medusa@2.20.0
+  - @medusajs/core-flows@2.20.0
+  - @medusajs/framework@2.20.0
+
 ## 2.19.0
 
 ### Patch Changes

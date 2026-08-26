@@ -1,5 +1,23 @@
 # @medusajs/framework
 
+## 2.20.0
+
+### Patch Changes
+
+- [#16313](https://github.com/medusajs/medusa/pull/16313) [`847612908fdd1c11a4df09ccc2e8ab44d338bb04`](https://github.com/medusajs/medusa/commit/847612908fdd1c11a4df09ccc2e8ab44d338bb04) Thanks [@DS123-ally](https://github.com/DS123-ally)! - fix(framework): isolate request-specific allowed query fields
+
+- [#16453](https://github.com/medusajs/medusa/pull/16453) [`785fd2b8a978201638a4d8d5ae9eea483958c0fb`](https://github.com/medusajs/medusa/commit/785fd2b8a978201638a4d8d5ae9eea483958c0fb) Thanks [@NicolasGorga](https://github.com/NicolasGorga)! - chore(framework,medusa): log jwt verification failure
+
+- Updated dependencies [[`4857d15bdcaf5a0648e7adc5b0b40312e23b5c02`](https://github.com/medusajs/medusa/commit/4857d15bdcaf5a0648e7adc5b0b40312e23b5c02), [`4857d15bdcaf5a0648e7adc5b0b40312e23b5c02`](https://github.com/medusajs/medusa/commit/4857d15bdcaf5a0648e7adc5b0b40312e23b5c02), [`51c48dcb472c3b232b88337030945b2b651e90f8`](https://github.com/medusajs/medusa/commit/51c48dcb472c3b232b88337030945b2b651e90f8), [`4528357cfe3c3bcf76a20b2ac2fe3637fb649a9d`](https://github.com/medusajs/medusa/commit/4528357cfe3c3bcf76a20b2ac2fe3637fb649a9d), [`c660642e0dcba2a581086b5176ab8fbc06127ed8`](https://github.com/medusajs/medusa/commit/c660642e0dcba2a581086b5176ab8fbc06127ed8), [`90841150c76acbd31d8e94bd2edd585ccdff1db7`](https://github.com/medusajs/medusa/commit/90841150c76acbd31d8e94bd2edd585ccdff1db7), [`693310310610cf439fabb73230187028f2755696`](https://github.com/medusajs/medusa/commit/693310310610cf439fabb73230187028f2755696), [`b9f3d12440a7f02ec3b68443934195193e4ecba8`](undefined), [`7f5bc532f92cd2cacea4c4750f64bc5b337f6f36`](undefined), [`c1e5a8f63988698df7f92b8f1e75f63ab8fdee64`](https://github.com/medusajs/medusa/commit/c1e5a8f63988698df7f92b8f1e75f63ab8fdee64), [`f3b3bd838ed53b6b2e1adead27d6b1006ea6e6e4`](https://github.com/medusajs/medusa/commit/f3b3bd838ed53b6b2e1adead27d6b1006ea6e6e4), [`2a5dd813a7e1d5094cb81f688e2e9e7cc8fd3543`](https://github.com/medusajs/medusa/commit/2a5dd813a7e1d5094cb81f688e2e9e7cc8fd3543), [`c5d55adb2375d19b8ae3be750e9aca52cf22e964`](https://github.com/medusajs/medusa/commit/c5d55adb2375d19b8ae3be750e9aca52cf22e964)]:
+  - @medusajs/types@2.20.0
+  - @medusajs/utils@2.20.0
+  - @medusajs/modules-sdk@2.20.0
+  - @medusajs/orchestration@2.20.0
+  - @medusajs/workflows-sdk@2.20.0
+  - @medusajs/cli@2.20.0
+  - @medusajs/deps@2.20.0
+  - @medusajs/telemetry@2.20.0
+
 ## 2.19.0
 
 ### Patch Changes

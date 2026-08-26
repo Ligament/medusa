@@ -1,5 +1,14 @@
 # @medusajs/order
 
+## 2.20.0
+
+### Patch Changes
+
+- [#16241](https://github.com/medusajs/medusa/pull/16241) [`a1a0a969099ac59ce22e4ba3ea64347cba102dc4`](https://github.com/medusajs/medusa/commit/a1a0a969099ac59ce22e4ba3ea64347cba102dc4) Thanks [@lazerg](https://github.com/lazerg)! - fix(order): select shipping method fields when listing orders with totals
+
+- Updated dependencies [[`847612908fdd1c11a4df09ccc2e8ab44d338bb04`](https://github.com/medusajs/medusa/commit/847612908fdd1c11a4df09ccc2e8ab44d338bb04), [`785fd2b8a978201638a4d8d5ae9eea483958c0fb`](https://github.com/medusajs/medusa/commit/785fd2b8a978201638a4d8d5ae9eea483958c0fb)]:
+  - @medusajs/framework@2.20.0
+
 ## 2.19.0
 
 ### Patch Changes

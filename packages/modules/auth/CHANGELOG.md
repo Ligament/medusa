@@ -1,5 +1,14 @@
 # @medusajs/auth
 
+## 2.20.0
+
+### Patch Changes
+
+- [#16571](https://github.com/medusajs/medusa/pull/16571) [`4dd4d90f814fb499239b8718a69f7f0dc04ae86a`](https://github.com/medusajs/medusa/commit/4dd4d90f814fb499239b8718a69f7f0dc04ae86a) Thanks [@ebrahim2355](https://github.com/ebrahim2355)! - fix(auth): await the OAuth state cache write so the state is stored before the provider redirects
+
+- Updated dependencies [[`847612908fdd1c11a4df09ccc2e8ab44d338bb04`](https://github.com/medusajs/medusa/commit/847612908fdd1c11a4df09ccc2e8ab44d338bb04), [`785fd2b8a978201638a4d8d5ae9eea483958c0fb`](https://github.com/medusajs/medusa/commit/785fd2b8a978201638a4d8d5ae9eea483958c0fb)]:
+  - @medusajs/framework@2.20.0
+
 ## 2.19.0
 
 ### Patch Changes
