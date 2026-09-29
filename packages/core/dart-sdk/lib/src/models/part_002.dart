@@ -18,6 +18,29 @@ class AdminCustomerResponse {
   };
 }
 
+/// The details of debiting a store credit account.
+class AdminDebitStoreCreditAccountParams {
+  AdminDebitStoreCreditAccountParams({
+    this.amount,
+    this.note,
+  });
+
+  /// The amount to debit from the store credit account, in the major currency unit. It's deducted from the customer's store credit balance.
+  final num? amount;
+  /// An additional note to add to the store credit transaction.
+  final String? note;
+
+  factory AdminDebitStoreCreditAccountParams.fromJson(Map<String, dynamic> json) => AdminDebitStoreCreditAccountParams(
+    amount: json["amount"] as num?,
+    note: json["note"] as String?,
+  );
+
+  Map<String, dynamic> toJson() => {
+    if (amount != null) "amount": amount!,
+    if (note != null) "note": note!,
+  };
+}
+
 /// The result of deleting the payment collection.
 class AdminDeletePaymentCollectionResponse {
   AdminDeletePaymentCollectionResponse({
@@ -2269,6 +2292,7 @@ class AdminInventoryItem {
     this.locationLevels,
     this.stockedQuantity,
     this.reservedQuantity,
+    this.unitOfMeasure,
   });
 
   /// The inventory item's ID.
@@ -2307,6 +2331,8 @@ class AdminInventoryItem {
   final num? stockedQuantity;
   /// The inventory item's reserved quantity.
   final num? reservedQuantity;
+  /// The inventory's unit of measure.
+  final String? unitOfMeasure;
 
   factory AdminInventoryItem.fromJson(Map<String, dynamic> json) => AdminInventoryItem(
     id: json["id"] as String?,
@@ -2327,6 +2353,7 @@ class AdminInventoryItem {
     locationLevels: (json["location_levels"] as List?)?.map((e) => e == null ? null : AdminInventoryLevel.fromJson(e as Map<String, dynamic>)).toList().cast<AdminInventoryLevel>(),
     stockedQuantity: json["stocked_quantity"] as num?,
     reservedQuantity: json["reserved_quantity"] as num?,
+    unitOfMeasure: json["unit_of_measure"] as String?,
   );
 
   Map<String, dynamic> toJson() => {
@@ -2348,6 +2375,7 @@ class AdminInventoryItem {
     if (locationLevels != null) "location_levels": locationLevels!.map((e) => e.toJson()).toList(),
     if (stockedQuantity != null) "stocked_quantity": stockedQuantity!,
     if (reservedQuantity != null) "reserved_quantity": reservedQuantity!,
+    if (unitOfMeasure != null) "unit_of_measure": unitOfMeasure!,
   };
 }
 
@@ -2560,31 +2588,5 @@ class AdminLayoutConfiguration {
     if (configuration != null) "configuration": configuration!,
     if (createdAt != null) "created_at": createdAt!.toIso8601String(),
     if (updatedAt != null) "updated_at": updatedAt!.toIso8601String(),
-  };
-}
-
-/// The details for a layout configuration response.
-class AdminLayoutConfigurationResponse {
-  AdminLayoutConfigurationResponse({
-    this.personalConfiguration,
-    this.defaultConfiguration,
-    this.activeScope,
-  });
-
-  final AdminLayoutConfiguration? personalConfiguration;
-  final AdminLayoutConfiguration? defaultConfiguration;
-  /// The active scope of the layout configuration.
-  final String? activeScope;
-
-  factory AdminLayoutConfigurationResponse.fromJson(Map<String, dynamic> json) => AdminLayoutConfigurationResponse(
-    personalConfiguration: json["personal_configuration"] == null ? null : AdminLayoutConfiguration.fromJson(json["personal_configuration"] as Map<String, dynamic>),
-    defaultConfiguration: json["default_configuration"] == null ? null : AdminLayoutConfiguration.fromJson(json["default_configuration"] as Map<String, dynamic>),
-    activeScope: json["active_scope"] as String?,
-  );
-
-  Map<String, dynamic> toJson() => {
-    if (personalConfiguration != null) "personal_configuration": personalConfiguration!.toJson(),
-    if (defaultConfiguration != null) "default_configuration": defaultConfiguration!.toJson(),
-    if (activeScope != null) "active_scope": activeScope!,
   };
 }

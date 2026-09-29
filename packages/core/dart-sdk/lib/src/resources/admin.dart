@@ -369,9 +369,9 @@ class AdminCustomerResource {
     return AdminCustomerResponse.fromJson(res);
   }
 
-  Future<AdminCustomerResponse> retrieveAddress(String id, String addressId, {QueryParams? query, ClientHeaders? headers}) async {
+  Future<AdminCustomerAddressResponse> retrieveAddress(String id, String addressId, {QueryParams? query, ClientHeaders? headers}) async {
     final res = await _client.fetch("/admin/customers/$id/addresses/$addressId", init: FetchArgs(query: query, headers: headers));
-    return AdminCustomerResponse.fromJson(res);
+    return AdminCustomerAddressResponse.fromJson(res);
   }
 
   Future<AdminCustomerAddressListResponse> listAddresses(String id, {QueryParams? query, ClientHeaders? headers}) async {
@@ -1923,12 +1923,19 @@ class AdminSearchResource {
     return AdminSearchResponse.fromJson(res);
   }
 
-  Future<dynamic> listIndexes({QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/search-indexes", init: FetchArgs(query: query, headers: headers));
+  Future<AdminSearchIndexListResponse> listIndexes({QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/search-indexes", init: FetchArgs(query: query, headers: headers));
+    return AdminSearchIndexListResponse.fromJson(res);
   }
 
-  Future<dynamic> reindex(String id, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/search-indexes/$id/reindex", init: FetchArgs(method: "POST", query: query, headers: headers));
+  Future<AdminSearchIndexDeleteResponse> deleteIndex(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/search-indexes/$id", init: FetchArgs(method: "DELETE", query: query, headers: headers));
+    return AdminSearchIndexDeleteResponse.fromJson(res);
+  }
+
+  Future<AdminSearchIndexReindexResponse> reindex(String id, AdminReindexSearchIndex body, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/search-indexes/$id/reindex", init: FetchArgs(method: "POST", body: body.toJson(), query: query, headers: headers));
+    return AdminSearchIndexReindexResponse.fromJson(res);
   }
 
 }
@@ -2252,12 +2259,14 @@ class AdminUserResource {
     return AdminUserResponse.fromJson(res);
   }
 
-  Future<dynamic> listAuthProviders(String id, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/users/$id/auth-providers", init: FetchArgs(query: query, headers: headers));
+  Future<AdminUserAuthProvidersResponse> listAuthProviders(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/users/$id/auth-providers", init: FetchArgs(query: query, headers: headers));
+    return AdminUserAuthProvidersResponse.fromJson(res);
   }
 
-  Future<dynamic> generateResetPasswordToken(String id, {QueryParams? query, ClientHeaders? headers}) async {
-    return _client.fetch("/admin/users/$id/reset-password", init: FetchArgs(method: "POST", query: query, headers: headers));
+  Future<AdminUserResetPasswordTokenResponse> generateResetPasswordToken(String id, {QueryParams? query, ClientHeaders? headers}) async {
+    final res = await _client.fetch("/admin/users/$id/reset-password", init: FetchArgs(method: "POST", query: query, headers: headers));
+    return AdminUserResetPasswordTokenResponse.fromJson(res);
   }
 
   Future<dynamic> listRoles(String id, {QueryParams? query, ClientHeaders? headers}) async {

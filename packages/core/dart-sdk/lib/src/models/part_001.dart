@@ -553,6 +553,7 @@ class AdminCreateInventoryItem {
     this.thumbnail,
     this.metadata,
     this.locationLevels,
+    this.unitOfMeasure,
   });
 
   /// The inventory item's SKU.
@@ -585,6 +586,8 @@ class AdminCreateInventoryItem {
   final Map<String, dynamic>? metadata;
   /// The inventory item's location levels.
   final List<AdminBatchCreateInventoryItemLocationLevels>? locationLevels;
+  /// The inventory item's unit of measure.
+  final String? unitOfMeasure;
 
   factory AdminCreateInventoryItem.fromJson(Map<String, dynamic> json) => AdminCreateInventoryItem(
     sku: json["sku"] as String?,
@@ -602,6 +605,7 @@ class AdminCreateInventoryItem {
     thumbnail: json["thumbnail"] as String?,
     metadata: json["metadata"] as Map<String, dynamic>?,
     locationLevels: (json["location_levels"] as List?)?.map((e) => e == null ? null : AdminBatchCreateInventoryItemLocationLevels.fromJson(e as Map<String, dynamic>)).toList().cast<AdminBatchCreateInventoryItemLocationLevels>(),
+    unitOfMeasure: json["unit_of_measure"] as String?,
   );
 
   Map<String, dynamic> toJson() => {
@@ -620,6 +624,7 @@ class AdminCreateInventoryItem {
     if (thumbnail != null) "thumbnail": thumbnail!,
     if (metadata != null) "metadata": metadata!,
     if (locationLevels != null) "location_levels": locationLevels!.map((e) => e.toJson()).toList(),
+    if (unitOfMeasure != null) "unit_of_measure": unitOfMeasure!,
   };
 }
 

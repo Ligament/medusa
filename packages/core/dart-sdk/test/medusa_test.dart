@@ -228,4 +228,42 @@ void main() {
       expect((res["user"] as Map)["id"], "user_1");
     });
   });
+
+  group("Admin search indexes", () {
+    test("search.deleteIndex DELETEs the index and deserializes the response", () async {
+      late http.Request captured;
+      final client = MedusaClient(
+        Config(baseUrl: "https://api.test"),
+        httpClient: MockClient((req) async {
+          captured = req;
+          return _json({"id": "product", "object": "search_index", "deleted": true, "deleted_versions": 2});
+        }),
+      );
+
+      final res = await Admin(client).search.deleteIndex("product");
+
+      expect(captured.method, "DELETE");
+      expect(captured.url.path, "/admin/search-indexes/product");
+      expect(res.id, "product");
+      expect(res.deleted, true);
+      expect(res.deletedVersions, 2);
+    });
+
+    test("search.reindex POSTs a typed body", () async {
+      late http.Request captured;
+      final client = MedusaClient(
+        Config(baseUrl: "https://api.test"),
+        httpClient: MockClient((req) async {
+          captured = req;
+          return _json({});
+        }),
+      );
+
+      await Admin(client).search.reindex("product", AdminReindexSearchIndex(strategy: "in_place"));
+
+      expect(captured.method, "POST");
+      expect(captured.url.path, "/admin/search-indexes/product/reindex");
+      expect((jsonDecode(captured.body) as Map)["strategy"], "in_place");
+    });
+  });
 }
