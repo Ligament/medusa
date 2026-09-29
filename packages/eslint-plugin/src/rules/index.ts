@@ -1,5 +1,6 @@
 import type { ESLint } from "eslint"
 import { rule as adminComponentMustBeArrowFunction } from "./admin-component-must-be-arrow-function"
+import { rule as allowFieldsMustBeGlobalMiddleware } from "./allow-fields-must-be-global-middleware"
 import { rule as adminEnvVarsImportMeta } from "./admin-env-vars-import-meta"
 import { rule as adminNoMedusaUtilsImport } from "./admin-no-medusa-utils-import"
 import { rule as authenticateFlagNameAndType } from "./authenticate-flag-name-and-type"
@@ -23,6 +24,7 @@ import { rule as middlewareMustCallNext } from "./middleware-must-call-next"
 import { rule as middlewaresFileLocationAndName } from "./middlewares-file-location-and-name"
 import { rule as noLoopsInWorkflow } from "./no-loops-in-workflow"
 import { rule as noMikroormDirectImport } from "./no-mikroorm-direct-import"
+import { rule as noNestedWhenInWorkflow } from "./no-nested-when-in-workflow"
 import { rule as noNewDateInWorkflow } from "./no-new-date-in-workflow"
 import { rule as noNonSerializableStepReturn } from "./no-non-serializable-step-return"
 import { rule as noReservedDefaultPropertiesInModel } from "./no-reserved-default-properties-in-model"
@@ -49,6 +51,7 @@ import { rule as useInjectManagerOnPublicMethods } from "./use-inject-manager-on
 import { rule as useMedusaErrorNotGenericError } from "./use-medusa-error-not-generic-error"
 import { rule as useValidatedBodyOrQuery } from "./use-validated-body-or-query"
 import { rule as noWorkflowCallWithoutContainer } from "./no-workflow-call-without-container"
+import { rule as preferAllowFieldsMiddleware } from "./prefer-allow-fields-middleware"
 import { rule as preferContainerRegistrationKeys } from "./prefer-container-registration-keys"
 import { rule as preferLinkOverRemoteLink } from "./prefer-link-over-remote-link"
 import { rule as preferModulesEnum } from "./prefer-modules-enum"
@@ -93,10 +96,12 @@ export const rules = {
   "no-duplicate-step-id-in-workflow": noDuplicateStepIdInWorkflow,
   "no-if-in-workflow-constructor": noIfInWorkflowConstructor,
   "medusa-context-on-context-param": medusaContextOnContextParam,
+  "allow-fields-must-be-global-middleware": allowFieldsMustBeGlobalMiddleware,
   "middleware-must-call-next": middlewareMustCallNext,
   "middlewares-file-location-and-name": middlewaresFileLocationAndName,
   "no-loops-in-workflow": noLoopsInWorkflow,
   "no-mikroorm-direct-import": noMikroormDirectImport,
+  "no-nested-when-in-workflow": noNestedWhenInWorkflow,
   "no-new-date-in-workflow": noNewDateInWorkflow,
   "no-non-serializable-step-return": noNonSerializableStepReturn,
   "no-reserved-default-properties-in-model": noReservedDefaultPropertiesInModel,
@@ -123,6 +128,7 @@ export const rules = {
   "use-medusa-error-not-generic-error": useMedusaErrorNotGenericError,
   "use-validated-body-or-query": useValidatedBodyOrQuery,
   "no-workflow-call-without-container": noWorkflowCallWithoutContainer,
+  "prefer-allow-fields-middleware": preferAllowFieldsMiddleware,
   "prefer-container-registration-keys": preferContainerRegistrationKeys,
   "prefer-link-over-remote-link": preferLinkOverRemoteLink,
   "prefer-modules-enum": preferModulesEnum,

@@ -33,11 +33,14 @@ const createService = () =>
 describe("MedusaSearchService", () => {
   it("requires Cloud credentials from provider options", () => {
     expect(() => new MedusaSearchService({}, {} as any)).toThrow(
-      /explicit "api_key"/
+      /explicit "endpoint"/
     )
     expect(
-      () => new MedusaSearchService({}, { api_key: "medusa_test" } as any)
-    ).toThrow(/explicit "endpoint"/)
+      () =>
+        new MedusaSearchService({}, {
+          endpoint: "https://search.medusa.example",
+        } as any)
+    ).toThrow(/explicit "api_key"/)
     expect(
       () =>
         new MedusaSearchService({}, {
@@ -75,19 +78,14 @@ describe("MedusaSearchService", () => {
         title: expect.objectContaining({ full_text_search: true }),
       }),
       distance_metric: undefined,
-      sharding: undefined,
     })
   })
 
-  it("recreates indexes when a vector attribute is added", async () => {
+  it("updates the schema in place on a migration re-run against an already-created namespace", async () => {
+    // Every version gets its own namespace, so finding one that already
+    // exists only happens when a migration re-runs after a crash — against
+    // this same, unchanging schema.
     const service = createService()
-    const withEmbedding: SearchTypes.ResolvedSearchIndexDefinition = {
-      ...definition,
-      fields: {
-        ...definition.fields,
-        embedding: { type: "vector", dimensions: 768, embed: true },
-      },
-    }
     const metadata = jest.fn().mockResolvedValue({
       schema: {
         id: { type: "string" },
@@ -95,48 +93,18 @@ describe("MedusaSearchService", () => {
         status: { type: "string" },
       },
     })
-    const deleteAll = jest.fn().mockResolvedValue(undefined)
-    const updateSchema = jest.fn()
+    const updateSchema = jest.fn().mockResolvedValue(undefined)
     const createIndex = jest.fn().mockResolvedValue(undefined)
-    const index = jest.fn(() => ({ deleteAll, metadata, updateSchema }))
-    ;(service as any).client_ = { createIndex, index }
-
-    await service.upsertIndex({ index: withEmbedding })
-
-    expect(deleteAll).toHaveBeenCalledTimes(1)
-    expect(updateSchema).not.toHaveBeenCalled()
-    expect(createIndex).toHaveBeenCalledWith(
-      expect.objectContaining({
-        name: "product",
-        schema: expect.objectContaining({
-          embedding: expect.objectContaining({ type: "[768]f32" }),
-        }),
-      })
-    )
-  })
-
-  it("recreates indexes with incompatible schemas through the create endpoint", async () => {
-    const service = createService()
-    const metadata = jest.fn().mockResolvedValue({
-      schema: {
-        id: { type: "string" },
-        title: { type: "int" },
-        status: { type: "string" },
-      },
-    })
-    const deleteAll = jest.fn().mockResolvedValue(undefined)
-    const createIndex = jest.fn().mockResolvedValue(undefined)
-    const index = jest.fn(() => ({ deleteAll, metadata }))
+    const index = jest.fn(() => ({ metadata, updateSchema }))
     ;(service as any).client_ = { createIndex, index }
 
     await service.upsertIndex({ index: definition })
 
-    expect(deleteAll).toHaveBeenCalledTimes(1)
-    expect(createIndex).toHaveBeenCalledWith(
+    expect(createIndex).not.toHaveBeenCalled()
+    expect(updateSchema).toHaveBeenCalledWith(
       expect.objectContaining({
-        name: "product",
         schema: expect.objectContaining({
-          title: expect.objectContaining({ type: "string" }),
+          title: expect.objectContaining({ full_text_search: true }),
         }),
       })
     )
@@ -292,6 +260,79 @@ describe("MedusaSearchService", () => {
     expect(facetQuery.group_by).toEqual(["status"])
     expect(facetQuery.top_k).toBe(10000)
     expect(facetQuery).not.toHaveProperty("limit")
+  })
+
+  it("counts groups rather than documents when results are deduplicated", async () => {
+    const service = createService()
+    const multiQuery = jest.fn().mockResolvedValue({
+      results: [
+        { rows: [{ id: "variant_1" }, { id: "variant_3" }] },
+        {
+          aggregation_groups: [
+            { product_id: "prod_1", count: 2 },
+            { product_id: "prod_2", count: 1 },
+          ],
+        },
+      ],
+      billing: {},
+      performance: { server_total_ms: 3 },
+    })
+    ;(service as any).client_ = {
+      index: jest.fn(() => ({ multiQuery })),
+    }
+
+    const result = await service.search({
+      index: {
+        ...definition,
+        fields: {
+          ...definition.fields,
+          product_id: { type: "keyword", filterable: true },
+        },
+      },
+      attributes_to_retrieve: [],
+      filters: { status: "published" },
+      search_options: { distinct: "product_id" },
+    })
+
+    expect(result.metadata.count).toBe(2)
+
+    const [hitsQuery, countQuery] = multiQuery.mock.calls[0][0].queries
+    expect(hitsQuery.limit).toEqual({
+      total: 20,
+      per: { attributes: ["product_id"], limit: 1 },
+    })
+    expect(countQuery).toEqual({
+      aggregate_by: { count: ["Count"] },
+      group_by: ["product_id"],
+      filters: ["status", "Eq", "published"],
+      top_k: 10000,
+    })
+  })
+
+  it("rejects deduplicating by an unknown or array field", async () => {
+    const service = createService()
+    const index = {
+      ...definition,
+      fields: {
+        ...definition.fields,
+        tags: { type: "keyword" as const, array: true, filterable: true },
+      },
+    }
+
+    await expect(
+      service.search({
+        index,
+        attributes_to_retrieve: [],
+        search_options: { distinct: "missing" },
+      })
+    ).rejects.toThrow(/unknown field "missing"/)
+    await expect(
+      service.search({
+        index,
+        attributes_to_retrieve: [],
+        search_options: { distinct: "tags" },
+      })
+    ).rejects.toThrow(/cannot deduplicate by "tags"/)
   })
 
   it("boosts typo-tolerant matches into rank_by and surfaces highlighted fragments", async () => {

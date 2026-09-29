@@ -21,6 +21,7 @@ export function buildRecommended(plugin: unknown): Linter.Config[] {
         [ruleId("no-duplicate-step-id-in-workflow")]: "error",
         [ruleId("no-if-in-workflow-constructor")]: "error",
         [ruleId("no-loops-in-workflow")]: "error",
+        [ruleId("no-nested-when-in-workflow")]: "error",
         [ruleId("no-new-date-in-workflow")]: "error",
         [ruleId("no-spread-in-workflow")]: "error",
         [ruleId("no-throw-in-transform")]: "error",
@@ -68,9 +69,11 @@ export function buildRecommended(plugin: unknown): Linter.Config[] {
     {
       files: ["**/middleware.{ts,js}", "**/middlewares.{ts,js}"],
       rules: {
+        [ruleId("allow-fields-must-be-global-middleware")]: "error",
         [ruleId("middleware-must-call-next")]: "warn",
         [ruleId("middlewares-file-location-and-name")]: "error",
         [ruleId("no-trailing-slash-in-route-matcher")]: "warn",
+        [ruleId("prefer-allow-fields-middleware")]: "warn",
       },
     },
     {
