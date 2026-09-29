@@ -1,0 +1,167 @@
+---
+sidebar_label: "สินค้าจัดชุดแบบสมาชิก (Subscription)"
+tags:
+    - user guide
+    - product
+products:
+    - product
+---
+
+import { Table } from "docs-ui"
+
+export const metadata = {
+  title: `สร้างสินค้าจัดชุดแบบสมาชิก (Subscription Bundle) ใน Medusa Admin`,
+}
+
+# {metadata.title}
+
+ในคู่มือนี้ คุณจะได้เรียนรู้วิธีสร้างสินค้าจัดชุดตามหมวดหมู่ที่ลูกค้าซื้อเป็นแบบสมาชิก (subscription) พร้อมรอบจัดส่งต่อเนื่อง คู่มือนี้ต่อยอดจากคู่มือ [สร้างสินค้าจัดชุดตามหมวดหมู่ (Category Bundle)](../page.mdx) ซึ่งอธิบายหลักการของ bundle และกลุ่มการเลือกไว้แล้ว
+
+## ภาพรวม
+
+Subscription bundle ทำงานเหมือน bundle แบบซื้อครั้งเดียว แต่มีแผนการจัดส่งและการต่ออายุเพิ่มเข้ามา:
+
+- การชำระเงินแต่ละครั้งให้สิทธิ์ลูกค้าได้รับรอบจัดส่งตามจำนวนที่ตั้งไว้ใน **Rounds per purchase**
+- ลูกค้าเลือกสินค้าในชุดใหม่ได้ทุกรอบจัดส่ง โดยใช้กลุ่มการเลือกชุดเดียวกัน
+- เมื่อรอบจัดส่งใกล้หมด subscription จะเข้าสู่การต่ออายุ ระบบจะตัดเงินอัตโนมัติหรือแจ้งเตือนให้ลูกค้าชำระเอง ขึ้นอยู่กับ **Payment mode**
+- ราคาของ linked product คือยอดที่เรียกเก็บต่อการชำระเงินหนึ่งครั้ง ซึ่งครอบคลุมรอบจัดส่งทั้งหมดใน **Rounds per purchase**
+
+---
+
+## สร้าง Subscription Bundle
+
+วิธีสร้างสินค้าจัดชุดแบบสมาชิก:
+
+1. ไปที่เมนู **Category Bundles** จากแถบเมนูด้านข้าง
+2. คลิกปุ่ม **Create Bundle** ที่มุมขวาบน ระบบจะเปิดฟอร์ม "Create category bundle"
+3. กรอก **Bundle name** ระบบจะใช้ชื่อนี้เป็นชื่อของสินค้าที่สร้างให้อัตโนมัติ
+4. เปิดสวิตช์ **Subscription bundle** ไว้ตามเดิม สวิตช์นี้เปิดอยู่เป็นค่าเริ่มต้น และแผง **Subscription plan** จะแสดงการตั้งค่าการจัดส่งและการต่ออายุ
+
+![ฟอร์ม Create category bundle พร้อมแผง Subscription plan](/user-guide/images/category-bundles/create-form-subscription.jpg)
+
+5. ตั้งค่ากลุ่มการเลือกของ bundle ตามหัวข้อ "ตั้งค่ากลุ่มการเลือก (Bundle Groups)" ในคู่มือ [สร้างสินค้าจัดชุดตามหมวดหมู่](../page.mdx)
+6. ตั้งค่ากติกาการจัดส่งและการต่ออายุ ตามหัวข้อ "ตั้งค่าแผน Subscription" ด้านล่าง
+7. เมื่อเรียบร้อยแล้ว คลิกปุ่ม **Create bundle**
+
+<Note title="คำเตือน" type="warning">
+
+เลือกประเภทของ bundle ให้ถูกต้องก่อนกดสร้าง เพราะไม่สามารถสลับระหว่าง one-time กับ subscription ได้หลังจากสร้างแล้ว
+
+</Note>
+
+---
+
+## ตั้งค่าแผน Subscription
+
+แผง **Subscription plan** เก็บการตั้งค่าการจัดส่งและการต่ออายุของ bundle
+
+### ตารางจัดส่ง (Delivery Schedule)
+
+ฟิลด์ **Delivery schedule** กำหนดว่ารอบจัดส่งเกิดขึ้นเมื่อใด:
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>
+        รูปแบบ
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        ฟิลด์ที่ต้องตั้งค่า
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        คำอธิบาย
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>
+        Weekly
+      </Table.Cell>
+      <Table.Cell>
+        Delivery days
+      </Table.Cell>
+      <Table.Cell>
+        เลือกวันในสัปดาห์ที่มีรอบจัดส่งได้
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Monthly
+      </Table.Cell>
+      <Table.Cell>
+        Day of month
+      </Table.Cell>
+      <Table.Cell>
+        ใช้วันที่ 1-28 เพื่อให้ทุกเดือนมีวันจัดส่งจริง
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Every N days
+      </Table.Cell>
+      <Table.Cell>
+        Interval in days
+      </Table.Cell>
+      <Table.Cell>
+        จัดส่งทุก ๆ N วัน
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Yearly
+      </Table.Cell>
+      <Table.Cell>
+        Month และ Day
+      </Table.Cell>
+      <Table.Cell>
+        จัดส่งปีละครั้งตามเดือนและวันที่กำหนด
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+### ความจุการจัดส่ง (Delivery Capacity)
+
+- **Rounds per purchase**: จำนวนรอบจัดส่งที่เพิ่มให้หลังการเรียกเก็บเงินสำเร็จแต่ละครั้ง
+- **Maximum delivery days per week**: จำนวนวันจัดส่งที่ลูกค้าเลือกได้ต่อสัปดาห์ ตัวอย่างเช่น ตั้งเป็น 1 เพื่อให้รับสินค้าได้สัปดาห์ละหนึ่งวัน
+- **Selection cutoff days**: จำนวนวันก่อนถึงวันจัดส่งที่ระบบจะล็อกการเลือกสินค้าของลูกค้า
+
+### การต่ออายุและการชำระเงิน (Renewal and Payment)
+
+- **Renew when rounds remain**: เริ่มกระบวนการต่ออายุเมื่อรอบจัดส่งเหลือเท่ากับจำนวนนี้
+- **Payment mode**: เลือก **Auto charge** เพื่อตัดเงินลูกค้าอัตโนมัติเมื่อต่ออายุ หรือ **Notify only** เพื่อแจ้งเตือนให้ลูกค้ามาชำระเงินเอง
+- **Subscription expiration**: อายุของ subscription เป็นจำนวนวัน เว้นว่างไว้เพื่อให้ subscription ใช้งานได้จนกว่าจะถูกยกเลิก
+
+---
+
+## ตั้งราคาและเผยแพร่
+
+ตั้งราคาที่ linked product ของ bundle แล้วเผยแพร่ ตามหัวข้อ "ตั้งราคาและเผยแพร่ Bundle" ในคู่มือ [สร้างสินค้าจัดชุดตามหมวดหมู่](../page.mdx)
+
+สำหรับ subscription bundle ราคานี้คือยอดที่เรียกเก็บต่อการชำระเงินหนึ่งครั้ง ซึ่งครอบคลุมรอบจัดส่งตามค่า **Rounds per purchase** ตัวอย่างเช่น หาก bundle มี 4 รอบต่อการซื้อ และตั้งราคา 2,000 บาท ลูกค้าจะจ่าย 2,000 บาทต่อรอบจัดส่ง 4 ครั้ง
+
+---
+
+## จัดการ Subscription
+
+### หน้ารายละเอียด Bundle
+
+หน้ารายละเอียดของ bundle ใน **Category Bundles** แสดงจำนวน subscription ที่ใช้งาน bundle นี้อยู่ และ configuration record ซึ่งบันทึกเวอร์ชันการตั้งค่าของ bundle ไว้ เพื่อให้การแก้ไขไม่กระทบ subscription เดิม
+
+<Note title="คำเตือน" type="warning">
+
+การแก้ไข bundle ที่มี subscription ใช้งานอยู่ ส่งผลต่อรอบจัดส่งของสมาชิกเดิม ตรวจสอบจำนวน subscription ที่หน้ารายละเอียดก่อนแก้ไขกติกาการจัดส่งหรือการต่ออายุ
+
+</Note>
+
+### เมนู Subscriptions
+
+ไปที่เมนู **Subscriptions** จากแถบเมนูด้านข้าง เพื่อจัดการงานปฏิบัติการของ subscription bundle ทั้งหมด หน้านี้แสดง:
+
+- **Orders to ship**: คำสั่งซื้อของรอบจัดส่งใน 7 วันข้างหน้าที่ยังไม่ได้จัดส่ง
+- **Upcoming subscription deliveries**: ปฏิทินรอบจัดส่งล่วงหน้า 7 วัน
+- ตัวเลขสรุป subscription ที่ใช้งานอยู่ ใกล้หมดอายุ และหมดอายุแล้ว
+- รายชื่อ subscription ทั้งหมดพร้อมรอบคงเหลือ วันจัดส่งถัดไป วันหมดอายุ และสถานะ
+
+นอกจากนี้ยังส่งออกรายชื่อได้ด้วยปุ่ม **Export CSV** หรือสร้าง subscription แทนลูกค้าได้ด้วยปุ่ม **Create Subscription**

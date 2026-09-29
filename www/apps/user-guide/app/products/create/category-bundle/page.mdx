@@ -1,0 +1,133 @@
+---
+sidebar_label: "Category Bundle Product"
+tags:
+    - user guide
+    - product
+products:
+    - product
+---
+
+export const metadata = {
+  title: `Create Category Bundle Product in Medusa Admin`,
+}
+
+# {metadata.title}
+
+In this guide, you'll learn how to create a category bundle, which is a product that customers build themselves by picking items from the categories you configure. This guide covers one-time bundles that customers purchase once. To sell a bundle as a subscription with recurring delivery rounds, refer to the [Create Subscription Category Bundle](./subscription/page.mdx) guide after reading this one.
+
+<Note>
+
+This guide covers the **Category Bundles** feature available in the sidebar. To create a bundle whose variants share an inventory kit instead, refer to the [Bundle Product](../bundle/page.mdx) guide.
+
+</Note>
+
+## Overview
+
+A category bundle is made of one or more selection groups. Each group points to a product category and defines how many items the customer can pick from it. For example, a vegetable box can have a "Premium vegetable" group where the customer picks one to six items, and a "Beverages" group where they pick one item.
+
+On the storefront, the customer goes through the groups in order and builds their own bundle:
+
+![Bundle building on the storefront, showing the customer's current selection](/user-guide/images/category-bundles/storefront-selection.jpg)
+
+When you create a bundle, Medusa automatically creates a linked product for it. You manage the bundle's price, media, description, sales channels, and publication on that product, like any other product.
+
+You can create two types of category bundles:
+
+- **One-time bundle**: The customer purchases and builds the bundle once. No delivery schedule or renewal rules are attached. This guide covers this type.
+- **Subscription bundle**: Each payment grants the customer a number of delivery rounds, and the subscription renews based on the rules you set. Refer to the [Create Subscription Category Bundle](./subscription/page.mdx) guide.
+
+Before you create a bundle, make sure the products that customers can pick are assigned to the right categories, as explained in the [Manage Categories](../../categories/page.mdx) guide.
+
+---
+
+## Create a One-Time Category Bundle
+
+To create a one-time category bundle:
+
+1. Go to **Category Bundles** from the sidebar.
+
+![Category Bundles list in Medusa Admin](/user-guide/images/category-bundles/category-bundles-list.jpg)
+
+2. Click the **Create Bundle** button at the top right. This opens the "Create category bundle" form.
+3. Enter a **Bundle name**. Medusa uses this name for the linked product it creates automatically. You can rename the product later.
+4. Disable the **Subscription bundle** toggle. The toggle is enabled by default. When you disable it, the side panel shows "One-time bundle" and no delivery or renewal rules are attached.
+
+![Create category bundle form with the Subscription bundle toggle disabled](/user-guide/images/category-bundles/create-form-onetime.jpg)
+
+5. Configure the bundle's selection groups, as explained in the [Configure Bundle Groups](#configure-bundle-groups) section.
+6. Once you're done, click the **Create bundle** button.
+
+<Note title="Warning" type="warning">
+
+Choose the bundle type before you create the bundle. You can't switch a bundle between one-time and subscription after creation.
+
+</Note>
+
+After you create the bundle, set its price and publish it as explained in the [Set the Bundle Price and Publish](#set-the-bundle-price-and-publish) section.
+
+---
+
+## Configure Bundle Groups
+
+Each group is one step that the customer goes through while building the bundle on the storefront. For each group, you can set the following fields:
+
+- **Category**: (required) The product category that the customer picks from. You must select a category before you can search for products in the fields below.
+- **Customer-facing label**: The text shown to the customer while they build the bundle. For example, "Choose 3 fruits".
+- **Minimum quantity** and **Maximum quantity**: The total number of items the customer must or can pick in this group.
+- **Maximum per variant**: The number of times the customer can pick the same item.
+- **Allowed Products (Whitelist)**: Leave this field empty to allow all products in the category. Select specific products to restrict the selection to them.
+- **Per-variant rules**: Add product variants that need rules different from the group's, as explained in the [Per-Variant Rules](#per-variant-rules) section.
+
+To add another group, click the **Add group** button. You can also drag groups to reorder them. The group order is the order the customer sees on the storefront.
+
+### Per-Variant Rules
+
+Use per-variant rules when a specific product variant needs custom availability, limits, or required quantities that differ from the group's general limits.
+
+To add a rule, search for the variant in the **Per-variant rules** field and select it from the results. The variant appears as a badge that you can remove by clicking its X icon, and a "Variant rule" section appears with the variant's settings:
+
+![Selection group with a category, whitelist, and a per-variant rule configured](/user-guide/images/category-bundles/group-per-variant.jpg)
+
+For each variant rule, you can set the following conditions:
+
+- **Customer selectable**: Whether the customer can pick this variant themselves while building the bundle. Enabled by default. Disable it to hide the variant from the customer's choices, for example for an item that you include through **Required quantity** instead.
+- **Minimum quantity**: The minimum quantity of this variant that the bundle must include. The default is 0, meaning no minimum.
+- **Maximum quantity**: The maximum quantity of this variant in the bundle. Leave it empty to use the group's **Maximum per variant** limit.
+- **Required quantity**: The quantity of this variant that every bundle must include automatically. The default is 0. Set it to a higher number to force the variant into every bundle, for example a mandatory ice pack.
+
+---
+
+## Set the Bundle Price and Publish
+
+The bundle isn't purchasable until its linked product has a price and is published. To set them:
+
+1. Go to **Category Bundles** and click the bundle to open its details page.
+2. In the **Linked product** section, click **View product**.
+3. On the product's page, edit the price in the **Pricing** section.
+4. Add the product's media and description.
+5. Check the product's sales channels and shipping configuration.
+6. Set the product's status to **Published**.
+
+---
+
+## Manage Bundles After Creation
+
+Click a bundle in **Category Bundles** to open its details page:
+
+![Bundle details page showing the subscription plan, linked product, and groups](/user-guide/images/category-bundles/bundle-details.jpg)
+
+From this page you can:
+
+- Click **Edit bundle** to change the selection groups and, for subscription bundles, the subscription plan.
+- Click **Archive** to stop selling the bundle without deleting it.
+- Click **Delete** to remove the bundle.
+
+The details page also shows the bundle's groups with their limits, the linked product, and, for subscription bundles, the number of active subscriptions and a configuration record.
+
+In addition, every product's page has a **Bundle Usage** section that shows the bundles the product is included in. Check it before you edit or stop selling a product that's part of a bundle.
+
+---
+
+## Next Step: Sell the Bundle as a Subscription
+
+To offer a bundle with recurring delivery rounds, automatic renewal, and recurring payments, refer to the [Create Subscription Category Bundle](./subscription/page.mdx) guide.

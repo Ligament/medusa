@@ -1,0 +1,167 @@
+---
+sidebar_label: "Subscription Category Bundle"
+tags:
+    - user guide
+    - product
+products:
+    - product
+---
+
+import { Table } from "docs-ui"
+
+export const metadata = {
+  title: `Create Subscription Category Bundle in Medusa Admin`,
+}
+
+# {metadata.title}
+
+In this guide, you'll learn how to create a category bundle that customers purchase as a subscription with recurring delivery rounds. This guide builds on the [Create Category Bundle Product](../page.mdx) guide, which explains how category bundles and their selection groups work.
+
+## Overview
+
+A subscription bundle works like a one-time category bundle, with a delivery and renewal plan on top:
+
+- Each payment grants the customer a number of delivery rounds, set in **Rounds per purchase**.
+- The customer picks the bundle's products for every delivery round, following the same selection groups.
+- When the remaining rounds run low, the subscription renews. Depending on the **Payment mode**, Medusa either charges the customer automatically or notifies them to pay manually.
+- The price of the bundle's linked product is the amount charged per payment, covering all the rounds in **Rounds per purchase**.
+
+---
+
+## Create a Subscription Bundle
+
+To create a subscription bundle:
+
+1. Go to **Category Bundles** from the sidebar.
+2. Click the **Create Bundle** button at the top right. This opens the "Create category bundle" form.
+3. Enter a **Bundle name**. Medusa uses this name for the linked product it creates automatically.
+4. Keep the **Subscription bundle** toggle enabled. It's enabled by default, and the **Subscription plan** panel shows the delivery and renewal settings.
+
+![Create category bundle form with the Subscription plan panel](/user-guide/images/category-bundles/create-form-subscription.jpg)
+
+5. Configure the bundle's selection groups, as explained in the [Configure Bundle Groups](../page.mdx#configure-bundle-groups) section of the category bundle guide.
+6. Configure the delivery and renewal rules, as explained in the [Configure the Subscription Plan](#configure-the-subscription-plan) section.
+7. Once you're done, click the **Create bundle** button.
+
+<Note title="Warning" type="warning">
+
+Choose the bundle type before you create the bundle. You can't switch a bundle between one-time and subscription after creation.
+
+</Note>
+
+---
+
+## Configure the Subscription Plan
+
+The **Subscription plan** panel holds the delivery and renewal settings of the bundle.
+
+### Delivery Schedule
+
+The **Delivery schedule** field controls when delivery rounds can occur:
+
+<Table>
+  <Table.Header>
+    <Table.Row>
+      <Table.HeaderCell>
+        Schedule
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        Fields to set
+      </Table.HeaderCell>
+      <Table.HeaderCell>
+        Description
+      </Table.HeaderCell>
+    </Table.Row>
+  </Table.Header>
+  <Table.Body>
+    <Table.Row>
+      <Table.Cell>
+        Weekly
+      </Table.Cell>
+      <Table.Cell>
+        Delivery days
+      </Table.Cell>
+      <Table.Cell>
+        Select the weekdays when deliveries can occur.
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Monthly
+      </Table.Cell>
+      <Table.Cell>
+        Day of month
+      </Table.Cell>
+      <Table.Cell>
+        Use 1-28 so each month has a valid delivery date.
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Every N days
+      </Table.Cell>
+      <Table.Cell>
+        Interval in days
+      </Table.Cell>
+      <Table.Cell>
+        A delivery occurs every N days.
+      </Table.Cell>
+    </Table.Row>
+    <Table.Row>
+      <Table.Cell>
+        Yearly
+      </Table.Cell>
+      <Table.Cell>
+        Month and Day
+      </Table.Cell>
+      <Table.Cell>
+        A delivery occurs once a year on this date.
+      </Table.Cell>
+    </Table.Row>
+  </Table.Body>
+</Table>
+
+### Delivery Capacity
+
+- **Rounds per purchase**: The number of delivery rounds added after each successful charge.
+- **Maximum delivery days per week**: The number of delivery days the customer can select per week. For example, set it to 1 to allow one delivery per week.
+- **Selection cutoff days**: The number of days before a delivery when the customer's selections lock.
+
+### Renewal and Payment
+
+- **Renew when rounds remain**: The renewal starts when this number of delivery rounds remain.
+- **Payment mode**: Choose **Auto charge** to charge the customer automatically on renewal, or **Notify only** to notify the customer to pay manually.
+- **Subscription expiration**: The subscription's lifetime in days. Leave it blank to keep the subscription active until it's cancelled.
+
+---
+
+## Set the Price and Publish
+
+Set the price on the bundle's linked product and publish it, as explained in the [Set the Bundle Price and Publish](../page.mdx#set-the-bundle-price-and-publish) section of the category bundle guide.
+
+For a subscription bundle, the price is the amount charged per payment, which covers the delivery rounds set in **Rounds per purchase**. For example, if the bundle has four rounds per purchase and the price is 2,000 THB, the customer pays 2,000 THB for every four delivery rounds.
+
+---
+
+## Manage Subscriptions
+
+### Bundle Details Page
+
+The bundle's details page in **Category Bundles** shows the number of active subscriptions that reference the bundle, and a configuration record that captures the bundle's settings so that changes don't affect existing subscriptions.
+
+<Note title="Warning" type="warning">
+
+Editing a bundle that has active subscriptions affects the delivery rounds of existing subscribers. Check the subscription count on the details page before you change delivery or renewal rules.
+
+</Note>
+
+### Subscriptions Section
+
+Go to **Subscriptions** from the sidebar to manage the operational side of subscription bundles. The section shows:
+
+- **Orders to ship**: Subscription orders due in the next seven days that haven't shipped.
+- **Upcoming subscription deliveries**: A calendar of the deliveries scheduled for the next seven days.
+- Counters of active, expiring, and expired subscriptions.
+- The full list of subscriptions with their remaining rounds, next delivery, expiration, and status.
+
+You can also export the list with **Export CSV**, or create a subscription on a customer's behalf with **Create Subscription**.

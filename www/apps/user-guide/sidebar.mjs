@@ -115,6 +115,18 @@ export const sidebar = [
                 title: "Bundle Product",
                 path: "/products/create/bundle",
               },
+              {
+                type: "link",
+                title: "Category Bundle Product",
+                path: "/products/create/category-bundle",
+                children: [
+                  {
+                    type: "link",
+                    title: "Subscription Category Bundle",
+                    path: "/products/create/category-bundle/subscription",
+                  },
+                ],
+              },
             ],
           },
           {

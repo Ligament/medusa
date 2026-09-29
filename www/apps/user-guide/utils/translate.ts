@@ -22,6 +22,8 @@ const THAI_TRANSLATIONS: Record<string, string> = {
   "Create Product": "สร้างสินค้า",
   "Multi-Part Product": "สินค้าหลายชิ้นส่วน",
   "Bundle Product": "สินค้าจัดชุด",
+  "Category Bundle Product": "สินค้าจัดชุดตามหมวดหมู่",
+  "Subscription Category Bundle": "สินค้าจัดชุดแบบสมาชิก",
   "Edit Product": "แก้ไขสินค้า",
   "Manage Variants": "จัดการตัวเลือกสินค้า",
   "Manage Collections": "จัดการคอลเลกชัน",
